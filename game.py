@@ -1,13 +1,20 @@
 import pygame
 
+import configparser
+
+# read configuration file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 
 class Game:
     """This is the main class for game"""
 
     def __init__(self):
         """Initialize attributes and setup game window"""
-        pygame.display.set_caption("Snake")
-        self.screen = pygame.display.set_mode((800, 600))
+        pygame.display.set_caption(config["Window"]["Name"])
+        dimensions = (int(config["Window"]["Width"]), (int(config["Window"]["Height"])))
+        self.screen = pygame.display.set_mode(dimensions)
         self.running = True
 
     def on_event(self, event):
