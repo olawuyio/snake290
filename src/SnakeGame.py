@@ -44,6 +44,10 @@ class SnakeGame:
         self.scene = pygame.display.set_mode((300, 300))
         self.handler = RenderHandler([], self.scene)
 
+    def on_quit(self):
+        """Close pygame window"""
+        pygame.quit()
+
     # Todo get this to use states and render handler also remove test map
     def run(self) -> None:
         """
@@ -67,7 +71,7 @@ class SnakeGame:
             # Exit game if player presses close button
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit()
+                    self.running = False
 
             # Todo add the menu and pause functions
             # Display the game while the state is running
@@ -83,8 +87,9 @@ class SnakeGame:
             elif self.state == "pause":
                 pass
 
+        self.on_quit()
+
 
 if __name__ == "__main__":
     game = SnakeGame()
     game.run()
-    pygame.display.flip()
