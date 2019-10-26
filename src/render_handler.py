@@ -1,6 +1,6 @@
 import pygame
 
-from items.ItemExample import BlueItem, GreenItem, RedItem
+from items.item_example import BlueItem, GreenItem, RedItem
 
 
 class RenderHandler:

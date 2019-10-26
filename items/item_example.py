@@ -4,7 +4,7 @@ Example of how to use the abstract item class
 """
 import pygame
 
-from items.Item import Item
+from items.item import Item
 
 
 class RedItem(Item):
