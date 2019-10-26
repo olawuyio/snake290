@@ -38,6 +38,7 @@ class SnakeGame:
 
     def __init__(self):
         pygame.init()
+        pygame.display.set_caption("Snake Game")
         self.b_color = 0, 0, 0
         self.state = State()
         self.scene = pygame.display.set_mode((300, 300))
