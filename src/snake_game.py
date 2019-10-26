@@ -5,8 +5,8 @@ import sys
 
 import pygame
 
-from src.RenderHandler import RenderHandler
-from src.State import State
+from src.render_handler import RenderHandler
+from src.state import State
 
 
 class SnakeGame:
