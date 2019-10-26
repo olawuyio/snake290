@@ -48,6 +48,19 @@ class SnakeGame:
         """Close pygame window"""
         pygame.quit()
 
+    def on_event(self, event):
+        """Handle a event.
+
+        :param event: the event to handle
+        """
+        if event.type == pygame.QUIT:
+            self.running = False
+
+    def handle_events(self):
+        """Handle all current events"""
+        for event in pygame.event.get():
+            self.on_event(event)
+
     # Todo get this to use states and render handler also remove test map
     def run(self) -> None:
         """
@@ -68,10 +81,8 @@ class SnakeGame:
             # Ensure game runs at same speed across all devices
             clock.tick(50)
 
-            # Exit game if player presses close button
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.running = False
+            # Handle all current events
+            self.handle_events()
 
             # Todo add the menu and pause functions
             # Display the game while the state is running
