@@ -62,7 +62,7 @@ class SnakeGame:
             self.on_event(event)
 
     # Todo get this to use states and render handler also remove test map
-    def run(self) -> None:
+    def on_run(self) -> None:
         """
         Starts the game and keeps running it, updating game logic and rendering
         items
@@ -103,4 +103,4 @@ class SnakeGame:
 
 if __name__ == "__main__":
     game = SnakeGame()
-    game.run()
+    game.on_run()
