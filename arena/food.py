@@ -30,6 +30,8 @@ class Food:
     def __init__(self, board: Board):
         """Initialize food on board"""
         self.x, self.y = board.get_random_empty_position()
+        # set the location of food on the board as non-empty
+        board.board[self.x][self.y] = 1
         self.on_board = True
 
     def eat(self) -> None:

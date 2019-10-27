@@ -84,10 +84,11 @@ class Player(Item):
         Grows the snake by 1, also add 1 to the score.
         """
         self.size += 1
+        # also change the display of the snake
+        self.height += 10
 
     def get_score(self) -> int:
         """
         Return the current score the player has
-        :return:
         """
         return self.size - 1
