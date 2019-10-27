@@ -15,6 +15,12 @@ class Player(Item):
     def __init__(self, position: tuple, size: tuple):
         super(Player, self).__init__(position, (255, 0, 0), size)
 
+    def grow(self) -> None:
+        """
+        Grow the snake by 1.
+        """
+        pass
+
     def render(self, scene: pygame.Surface) -> None:
         """
         :param scene: Main scene the game is showing
