@@ -1,10 +1,11 @@
 import pygame
+from board import Board
 
 
 class Item:
     """
-    Abstract class should not be implemented on this own
-    Base for how components in the game should be defined
+    Represents how all the items in the game should look. This class includes
+    attributes and methods all items must have.
 
     Attributes:
     ===========
@@ -12,13 +13,8 @@ class Item:
         the x coordinate
     y: int
         the y coordinate
-    width: int
-        the width of the item
-    height: int
-        the height of the item
     color: tuple
         the color of the item in rgb
-
 
     Methods:
     ========
@@ -45,14 +41,11 @@ class Item:
 
     x: int
     y: int
-    width: int
-    height: int
     color: tuple
 
-    def __init__(self, position: tuple, color: tuple, size: tuple):
+    def __init__(self, position: tuple, color: tuple):
         self.x, self.y = position
         self.color = color
-        self.width, self.height = size
 
     def render(self, scene: pygame.Surface) -> None:
         """
@@ -83,5 +76,5 @@ class Item:
         """
         for item in Board.items:
             if item.x == x and item.y == y:
-                return object
+                return item
         return None
