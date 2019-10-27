@@ -1,7 +1,8 @@
 from arena.board import Board
+from items import item
 
 
-class Food:
+class Food(item):
     """
     Represents food on the board
 
@@ -11,6 +12,10 @@ class Food:
         the x coordinate of food on board
     y: int
         the y coordinate of food on board
+    size: tuple
+        the display size of the food on board
+    color: tuple
+        the display color of the food on board
     on_board: bool
         shows whether or not food is on board
 
@@ -25,11 +30,16 @@ class Food:
 
     x: int
     y: int
+    size: tuple
+    color: tuple
     on_board: bool
 
-    def __init__(self, board: Board):
+    def __init__(self,x: int, y: int, color: tuple, size: int, board: Board):
         """Initialize food on board"""
         self.x, self.y = board.get_random_empty_position()
+        self.size = (4,4)
+        self.color = (255, 0, 0)
+        item.__init__(x, y, color, size)
         # set the location of food on the board as non-empty
         board.board[self.x][self.y] = 1
         self.on_board = True
