@@ -10,36 +10,34 @@ class Player(Item):
 
     Attributes:
     ===========
-    x: int
-        x coordinate of this actor's location on the stage
-    y: int
-        y coordinate of this actor's location on the stage
     size: int
-        the current size of the snake, initialized to 1.
+        the current size of the snake, initialized to 4
+    keys_pressed: pygame
+        the keys the player presses
 
     Methods:
     ========
-    get_score() -> Int
-        return the current score of the game
     move(SnakeGame) -> None
         update the position of the Snake
     grow(self) -> None
         grow the snake by 1, also increase 1 to the score
+    get_score() -> Int
+        return the current score of the game
     """
 
     x: int
     y: int
     size: int
+    keys_pressed: pygame
 
-    def __init__(self, x: int, y: int, color: tuple, size: tuple) -> None:
+    def __init__(self, x: int, y: int, color: tuple, size: int) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage.
         """
 
         Item.__init__(x, y, color, size)
         self.color = (0, 128, 0)
-        self.width, self.height = size
         self.keys_pressed = None
-        self.size = 1
+        self.size = 4
 
     def render(self, scene: pygame.Surface) -> None:
         """
@@ -65,13 +63,13 @@ class Player(Item):
 
         new_x, new_y = self.x + dx, self.y + dy
         # Check what object is at the new position
-        obj = Item.get_actor(new_x, new_y)
+        obj = Item.return_item(new_x, new_y)
         if Board.is_position_empty():
             self.x, self.y = new_x, new_y
         elif isinstance(item, Food):
             obj.eat()
             self.x, self.y = new_x, new_y
-            self._score += 1
+            self.grow()
         elif isinstance(item, Player):
             self.x, self.y = new_x, new_y
             game.game_over()
