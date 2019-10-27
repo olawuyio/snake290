@@ -74,5 +74,14 @@ class Item:
         :param item2: an item object
         :return: True if touching, False if not
         """
-
         return pygame.Rect.colliderect(item2)
+    
+    def return_item(self, x: int, y: int) -> Item:
+        """
+        Return the item that exists in the location given by
+        <x> and <y>. If there isn't an item in that location, return None.
+        """
+        for item in Board.items:
+            if item.x == x and item.y == y:
+                return object
+        return None
