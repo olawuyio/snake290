@@ -14,19 +14,22 @@ class Player(Item):
         x coordinate of this actor's location on the stage
     y: int
         y coordinate of this actor's location on the stage
+    size: int
+        the current size of the snake, initialized to 1.
 
     Methods:
     ========
-    get_score() -> None
-        update the score of the game
+    get_score() -> Int
+        return the current score of the game
     move(SnakeGame) -> None
         update the position of the Snake
     grow(self) -> None
-        grow the snake by 1
+        grow the snake by 1, also increase 1 to the score
     """
 
     x: int
     y: int
+    size: int
 
     def __init__(self, x: int, y: int, color: tuple, size: tuple) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage.
@@ -36,8 +39,8 @@ class Player(Item):
         self.color = (0, 128, 0)
         self.width, self.height = size
         self.keys_pressed = None
-        self._score = 0
-        
+        self.size = 1
+
     def render(self, scene: pygame.Surface) -> None:
         """
         Main scene the game is showing
@@ -78,6 +81,13 @@ class Player(Item):
 
     def grow(self) -> None:
         """
-        Grow the snake by 1
+        Grows the snake by 1, also add 1 to the score.
         """
-        pass
+        self.size += 1
+
+    def get_score(self) -> int:
+        """
+        Return the current score the player has
+        :return:
+        """
+        return self.size - 1
