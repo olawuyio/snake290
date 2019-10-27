@@ -17,7 +17,7 @@ class Player(Item):
 
     def grow(self) -> None:
         """
-        Grow the snake by 1.
+        Grow the snake by 1
         """
         pass
 
