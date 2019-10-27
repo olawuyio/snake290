@@ -14,7 +14,7 @@ class Player(Item):
         the current size of the snake, initialized to 4
     keys_pressed: pygame
         the keys the player presses
-
+gitgit
     Methods:
     ========
     move(SnakeGame) -> None
@@ -87,6 +87,6 @@ class Player(Item):
 
     def get_score(self) -> int:
         """
-        Return the current score the player has
+        :return: the current score the player has
         """
-        return self.size - 1
+        return self.size - 4
