@@ -4,15 +4,8 @@ SnakeGame is a compilation of code that deals with game logic and rendering
 
 ## Libraries
 
-The list of libraries used are in the ext folder in the Requirements.txt file.
-To install the libraries using pycharm open the Requirements.txt file and click
-on the prompt that will automatically download the files.
-
-## Settings
-
-All the required settings are in the ext folder, in the settings.jar file. To
-use these settings click on the file tab, then click import settings and select
-the settings.jar from the directory.
+The list of libraries used are found in the requirements.txt file on the root directory.
+To install the libraries run: `pip install requirements.txt`
 
 ## Folder and their content
 
