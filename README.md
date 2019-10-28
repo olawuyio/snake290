@@ -29,7 +29,9 @@ doc: all documentation
 When adding classes make sure to put them in the correct folder
 If you wish to import a class simply follow the form
 
-        from folder.file_name import class_name
+```python
+from folder.file_name import class_name
+```
 
 Look at SnakeGame class for an example
 
@@ -41,9 +43,11 @@ implement it and I will add it later)
 If you wish to render your object go into the render handler's update method
 and add your object to the chain of if else statements in the form
 
-        elif current == num:  # num is the number that represents your item
-            item = your_item((row * 100, col * 100), (width, height))
-            temp_col.append(item)
+```python
+elif current == num:  # num is the number that represents your item
+    item = your_item((row * 100, col * 100), (width, height))
+    temp_col.append(item)
+```
 
 Note the row and the col are the x y position which will be given
 and the *100 places it in the right spot on the map relative to the 2d array.
