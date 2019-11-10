@@ -1,6 +1,6 @@
 import random
 from typing import Optional, List
-
+from items.player import Player
 
 class Board:
     """
@@ -92,7 +92,7 @@ class Board:
                 if self.board[y][x] == 0:
                     positions.append((x, y))
         return positions
-    
+
     def setup_board(self) -> None:
         """
         Set up the board with walls, food and a snake, and put the items

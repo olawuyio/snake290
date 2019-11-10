@@ -1,7 +1,7 @@
 import pygame
-from board import Board
-from food import Food
-from item import Item
+from arena.board import Board
+from arena.food import Food
+from items.item import Item
 
 
 class Player(Item):
