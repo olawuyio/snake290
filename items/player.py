@@ -67,14 +67,14 @@ gitgit
         obj = Item.return_item(new_x, new_y)
         if Board.is_position_empty():
             self.x, self.y = new_x, new_y
-        elif isinstance(item, Food):
+        elif isinstance(Item, Food):
             obj.eat()
             self.x, self.y = new_x, new_y
             self.grow()
-        elif isinstance(item, Player):
+        elif isinstance(Item, Player):
             self.x, self.y = new_x, new_y
             game.game_over()
-        elif isinstance(item, Wall):
+        elif isinstance(Item, Wall):
             self.x, self.y = new_x, new_y
             game.game_over()
 

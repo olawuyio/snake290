@@ -12,7 +12,7 @@ class Food(item):
         the x coordinate of food on board
     y: int
         the y coordinate of food on board
-    size: tupl
+    size: tuple
         the display size of the food on board
     color: tuple
         the display color of the food on board

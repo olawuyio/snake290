@@ -1,6 +1,9 @@
 import random
 from typing import Optional, List
 from items.player import Player
+from arena.food import Food
+from arena.wall import Wall
+
 
 class Board:
     """
