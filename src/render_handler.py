@@ -1,3 +1,5 @@
+from typing import List
+
 import pygame
 
 from items.item_example import BlueItem, GreenItem, RedItem
@@ -28,10 +30,10 @@ class RenderHandler:
     len(objects) == len(game)
     screen will be a valid pygame surface
     """
-    objects: list
+    objects: List[List[int]]
     screen: pygame.Surface
 
-    def __init__(self, game: list, screen: pygame.Surface):
+    def __init__(self, game: List[List[int]], screen: pygame.Surface):
 
         # Todo: make the dimensions relative to a global variable
 
@@ -43,7 +45,7 @@ class RenderHandler:
         self.update(game)
         self.screen = screen
 
-    def update(self, game: list) -> None:
+    def update(self, game: List[List[int]]) -> None:
         """
         Loop through the game list and mirror it to a list of objects such that
         the objects represent visually what is going on in the game
