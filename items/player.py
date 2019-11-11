@@ -2,6 +2,7 @@ import pygame
 from arena.board import Board
 from arena.food import Food
 from items.item import Item
+from arena.wall import Wall
 
 
 class Player(Item):
@@ -11,10 +12,14 @@ class Player(Item):
 
     Attributes:
     ===========
+    width: int
+        the width of the snake
     size: int
-        the current size of the snake, initialized to 4
+        the current length of the snake, initialized to 4
     keys_pressed: pygame
         the keys the player presses
+    score: int
+        the current score of the player
 gitgit
     Methods:
     ========
@@ -28,7 +33,9 @@ gitgit
 
     x: int
     y: int
+    width: int
     size: int
+    score: int
     keys_pressed: pygame
 
     def __init__(self, x: int, y: int, color: tuple, size: int) -> None:
@@ -39,6 +46,8 @@ gitgit
         self.color = (0, 128, 0)
         self.keys_pressed = None
         self.size = 4
+        self.score = 0
+        self.width = 4
 
     def render(self, scene: pygame.Surface) -> None:
         """
@@ -80,14 +89,12 @@ gitgit
 
     def grow(self) -> None:
         """
-        Grows the snake by 1, also add 1 to the score.
+        Grows the snake by 1, add 1 to the score.
         """
-        self.size += 1
-        # also change the display of the snake
-        self.height += 10
+        self.score += 1
 
     def get_score(self) -> int:
         """
         :return: the current score the player has
         """
-        return self.size - 4
+        return self.score
