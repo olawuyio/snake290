@@ -20,7 +20,7 @@ class Player(Item):
         the keys the player presses
     score: int
         the current score of the player
-gitgit
+
     Methods:
     ========
     move(SnakeGame) -> None
@@ -76,14 +76,14 @@ gitgit
         obj = Item.return_item(new_x, new_y)
         if Board.is_position_empty():
             self.x, self.y = new_x, new_y
-        elif isinstance(Item, Food):
+        elif isinstance(obj, Food):
             obj.eat()
             self.x, self.y = new_x, new_y
             self.grow()
-        elif isinstance(Item, Player):
+        elif isinstance(obj, Player):
             self.x, self.y = new_x, new_y
             game.game_over()
-        elif isinstance(Item, Wall):
+        elif isinstance(obj, Wall):
             self.x, self.y = new_x, new_y
             game.game_over()
 
