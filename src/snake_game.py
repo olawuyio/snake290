@@ -1,10 +1,10 @@
 """
 SnakeGame is a representation of the classic game snake
 """
-import sys
 
 import pygame
 
+from arena.board import Board
 from src.render_handler import RenderHandler
 from src.state import State
 
@@ -29,6 +29,7 @@ class SnakeGame:
     scene: pygame.Surface
     b_color: tuple
     handler: RenderHandler
+    board: Board
 
     running = True
 
@@ -39,10 +40,12 @@ class SnakeGame:
     def __init__(self):
         pygame.init()
         pygame.display.set_caption("Snake Game")
+
         self.b_color = 0, 0, 0
         self.state = State()
         self.scene = pygame.display.set_mode((300, 300))
         self.handler = RenderHandler([], self.scene)
+        self.board = Board()
 
     def on_quit(self):
         """Close pygame window"""
@@ -61,6 +64,14 @@ class SnakeGame:
         for event in pygame.event.get():
             self.on_event(event)
 
+    def update(self) -> int[[]]:
+        """
+        Handles all game ticks
+        :return:
+        """
+        # Todo add all game ticks
+        pass
+
     # Todo get this to use states and render handler also remove test map
     def on_run(self) -> None:
         """
@@ -69,10 +80,6 @@ class SnakeGame:
 
         """
         self.state.set_to_running()
-        print(self.state == "running")
-        test_map = [[1, 2, 3],
-                    [0, 1, 0],
-                    [1, 3, 1]]
 
         clock = pygame.time.Clock()
         self.scene.fill(self.b_color)
@@ -89,8 +96,12 @@ class SnakeGame:
             if self.state == "running":
 
                 self.scene.fill(self.b_color)
-                self.handler.update(test_map)
+
+                # Update and render game
+                map = self.update()
+                self.handler.update(map)
                 self.handler.render()
+
                 pygame.display.flip()
 
             elif self.state == "menu":

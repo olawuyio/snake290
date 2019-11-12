@@ -69,7 +69,7 @@ class Item:
         """
         return pygame.Rect.colliderect(item2)
 
-    def return_item(self, x: int, y: int) -> Item:
+    def return_item(self, x: int, y: int) -> object:
         """
         Return the item that exists in the location given by
         <x> and <y>. If there isn't an item in that location, return None.
@@ -78,3 +78,6 @@ class Item:
             if item.x == x and item.y == y:
                 return item
         return None
+
+    def __str__(self) -> None:
+        self.render()
