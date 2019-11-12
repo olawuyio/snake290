@@ -52,7 +52,7 @@ class SnakeGame:
         self.scene = pygame.display.set_mode((self.BOARD_WIDTH,
                                               self.BOARD_HEIGHT))
         self.handler = RenderHandler([], self.scene)
-        self.board = Board(64, 48)
+        self.board = Board(self.BOARD_HEIGHT // 10, self.BOARD_WIDTH // 10)
 
     def on_quit(self):
         """Close pygame window"""
