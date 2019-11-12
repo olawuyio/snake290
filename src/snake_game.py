@@ -2,6 +2,9 @@
 SnakeGame is a representation of the classic game snake
 """
 
+from random import randint
+from typing import List
+
 import pygame
 
 from arena.board import Board
@@ -34,8 +37,11 @@ class SnakeGame:
     running = True
 
     # DIMENSIONS FOR THE GAME BOARD
-    BOARD_HEIGHT = 10
-    BOARD_WIDTH = 10
+    BOARD_HEIGHT = 480
+    BOARD_WIDTH = 640
+
+    # Frame rate
+    FPS = 50
 
     def __init__(self):
         pygame.init()
@@ -43,9 +49,10 @@ class SnakeGame:
 
         self.b_color = 0, 0, 0
         self.state = State()
-        self.scene = pygame.display.set_mode((300, 300))
+        self.scene = pygame.display.set_mode((self.BOARD_WIDTH,
+                                              self.BOARD_HEIGHT))
         self.handler = RenderHandler([], self.scene)
-        self.board = Board()
+        self.board = Board(64, 48)
 
     def on_quit(self):
         """Close pygame window"""
@@ -64,13 +71,18 @@ class SnakeGame:
         for event in pygame.event.get():
             self.on_event(event)
 
-    def update(self) -> int[[]]:
+    def update(self) -> List[List[int]]:
         """
         Handles all game ticks
         :return:
         """
-        # Todo add all game ticks
-        pass
+        # Todo add all game ticks and remove random generator
+        board = self.board.board
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                board[i][j] = randint(0, 3)
+
+        return board
 
     # Todo get this to use states and render handler also remove test map
     def on_run(self) -> None:
@@ -86,7 +98,7 @@ class SnakeGame:
 
         while self.running:
             # Ensure game runs at same speed across all devices
-            clock.tick(50)
+            clock.tick(self.FPS)
 
             # Handle all current events
             self.handle_events()
@@ -98,8 +110,9 @@ class SnakeGame:
                 self.scene.fill(self.b_color)
 
                 # Update and render game
-                map = self.update()
-                self.handler.update(map)
+                board = self.update()
+                # print(board)
+                self.handler.update(board)
                 self.handler.render()
 
                 pygame.display.flip()

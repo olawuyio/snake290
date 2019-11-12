@@ -1,5 +1,5 @@
 import random
-from typing import Optional, List
+from typing import List, Optional
 
 
 class Board:
@@ -63,7 +63,7 @@ class Board:
             return False
         return self.board[y][x] == 0
 
-    def get_random_empty_position(self) -> Optional[(int, int)]:
+    def get_random_empty_position(self) -> Optional[tuple]:
         """Get a random empty position
 
         :return: a tuple position (x, y) that is empty,
@@ -74,7 +74,7 @@ class Board:
             return None
         return positions[random.randrange(len(positions))]
 
-    def get_all_empty_positions(self) -> List[(int, int)]:
+    def get_all_empty_positions(self) -> List[tuple]:
         """Get all empty positions
 
         :return: a list containing tuples (x, y) of all empty positions

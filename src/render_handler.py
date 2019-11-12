@@ -2,7 +2,7 @@ from typing import List
 
 import pygame
 
-from items.item_example import BlueItem, GreenItem, RedItem
+from items.item import Item
 
 
 class RenderHandler:
@@ -32,6 +32,10 @@ class RenderHandler:
     """
     objects: List[List[int]]
     screen: pygame.Surface
+    BLUE = (0, 0, 255)
+    GREEN = (0, 255, 0)
+    RED = (255, 0, 0)
+    SCALE = 10  # Constant to scale the 2d array to pygame surface
 
     def __init__(self, game: List[List[int]], screen: pygame.Surface):
 
@@ -63,22 +67,25 @@ class RenderHandler:
 
             # Create a object based on the item in the list
             for col in range(len(game[row])):
-                current = game[col][row]
+                current = game[row][col]
 
                 # Check which item is in the spot
                 if current == 0:
                     temp_col.append(None)
 
                 elif current == 1:  # add red item
-                    item = RedItem((row * 100, col * 100), (100, 100))
+                    item = Item((row * self.SCALE, col * self.SCALE),
+                                self.RED)
                     temp_col.append(item)
 
                 elif current == 2:  # add blue item
-                    item = BlueItem((row * 100, col * 100), (100, 100))
+                    item = Item((row * self.SCALE, col * self.SCALE),
+                                self.BLUE)
                     temp_col.append(item)
 
                 elif current == 3:  # add green item
-                    item = GreenItem((row * 100, col * 100), (100, 100))
+                    item = Item((row * self.SCALE, col * self.SCALE),
+                                self.GREEN)
                     temp_col.append(item)
 
                 else:
@@ -88,14 +95,14 @@ class RenderHandler:
 
         self.objects = temp_list
 
-    # Todo: Remove this method
-    def draw(self) -> None:
-        red_item = RedItem((300, 200), (20, 20))
-        green_item = RedItem((100, 200), (20, 20))
-        blue_item = RedItem((100, 100), (20, 20))
-        red_item.render(self.screen)
-        green_item.render(self.screen)
-        blue_item.render(self.screen)
+    # # Todo: Remove this method
+    # def draw(self) -> None:
+    #     red_item = RedItem((300, 200), (20, 20))
+    #     green_item = RedItem((100, 200), (20, 20))
+    #     blue_item = RedItem((100, 100), (20, 20))
+    #     red_item.render(self.screen)
+    #     green_item.render(self.screen)
+    #     blue_item.render(self.screen)
 
     def render(self) -> None:
         """

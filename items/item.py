@@ -1,4 +1,5 @@
 import pygame
+
 from arena.board import Board
 
 
@@ -38,7 +39,8 @@ class Item:
     colour's elements are in the range 0 - 255 as a tuple(int, int, int)
 
     """
-
+    WIDTH = 10
+    HEIGHT = 10
     x: int
     y: int
     color: tuple
@@ -52,7 +54,8 @@ class Item:
         Defines how the function should be drawn on the screen
         :param scene: Main scene the game is showing
         """
-        raise NotImplementedError
+        dimensions = (self.x, self.y, self.WIDTH, self.HEIGHT)
+        pygame.draw.rect(scene, self.color, dimensions)
 
     def update(self, position: tuple) -> None:
         """
