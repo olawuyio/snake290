@@ -43,9 +43,17 @@ class Board:
         self.board = [[0 for _ in range(self.get_width())] for _ in range(self.get_height())]
 
     def get_width(self) -> int:
+        """Get board width
+
+        :return: board width
+        """
         return self.dimensions[0]
 
     def get_height(self) -> int:
+        """Get board height
+
+        :return: board height
+        """
         return self.dimensions[1]
 
     def is_valid_position(self, position: tuple) -> bool:
