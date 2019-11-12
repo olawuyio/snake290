@@ -1,17 +1,14 @@
 from arena.board import Board
-from items.item import Item
 
 
-class Food(Item):
+class Food:
     """
     Represents food on the board
 
     Attributes:
     ===========
-    x: int
-        the x coordinate of food on board
-    y: int
-        the y coordinate of food on board
+    dimensions: tuple
+        x, y coordinates of food
     board: Board
         the board the food is on
     on_board: bool
@@ -25,21 +22,35 @@ class Food(Item):
     spawn_food(Board) -> None
         spawn food item on board
     """
-    x: int
-    y: int
+
+    position: tuple
     board: Board
     on_board: bool
 
     def __init__(self, board: Board):
         """Initialize food on board"""
-        self.x, self.y = board.get_random_empty_position()
+        self.position = board.get_random_empty_position()
         self.board = board
-        self.board.board[self.x][self.y] = 2
+        self.board.board[self.get_x()][self.get_y()] = 2
         self.on_board = True
+
+    def get_x(self):
+        """Get x coordinate of food
+
+        :return: x coordinate of food
+        """
+        return self.position[0]
+
+    def get_y(self):
+        """Get y coordinate of food
+
+        :return: y coordinate of food
+        """
+        return self.position[1]
 
     def eat(self) -> None:
         """Eat food on board"""
-        self.board.board[self.x][self.y] = 0
+        self.board.board[self.get_x()][self.get_y()] = 0
         self.on_board = False
 
     def spawn_food(self, board: Board) -> None:
