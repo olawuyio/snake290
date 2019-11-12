@@ -1,8 +1,8 @@
 from arena.board import Board
-from items import item
+from items.item import Item
 
 
-class Food(item):
+class Food(Item):
     """
     Represents food on the board
 
@@ -25,7 +25,6 @@ class Food(item):
     spawn_food(Board) -> None
         spawn food item on board
     """
-
     x: int
     y: int
     board: Board
