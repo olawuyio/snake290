@@ -19,12 +19,14 @@ class State:
 
 
     """
+    running: bool
     state: str
 
     def __init__(self):
         """
         Default state is menu
         """
+        self.running = True
         self.state = "menu"
 
     def set_to_menu(self) -> None:
@@ -44,6 +46,9 @@ class State:
         changes the state to "running"
         """
         self.state = "running"
+
+    def quit(self):
+        self.running = False
 
     def __eq__(self, other):
         return self.state == other

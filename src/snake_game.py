@@ -34,8 +34,6 @@ class SnakeGame:
     handler: RenderHandler
     board: Board
 
-    running = True
-
     # DIMENSIONS FOR THE GAME BOARD
     BOARD_HEIGHT = 480
     BOARD_WIDTH = 640

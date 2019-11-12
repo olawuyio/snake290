@@ -56,6 +56,9 @@ class Board:
         """
         return self.dimensions[1]
 
+    def get_code(self, position: tuple) -> int:
+        return self.board[position[0]][position[1]]
+
     def is_valid_position(self, position: tuple) -> bool:
         """Check if position is valid
 
