@@ -34,10 +34,10 @@ class Food(item):
     color: tuple
     on_board: bool
 
-    def __init__(self,x: int, y: int, color: tuple, size: int, board: Board):
+    def __init__(self, x: int, y: int, color: tuple, size: int, board: Board):
         """Initialize food on board"""
         self.x, self.y = board.get_random_empty_position()
-        self.size = (4,4)
+        self.size = (4, 4)
         self.color = (255, 0, 0)
         item.__init__(x, y, color, size)
         # set the location of food on the board as non-empty
