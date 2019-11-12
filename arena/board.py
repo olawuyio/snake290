@@ -1,8 +1,5 @@
 import random
 from typing import Optional, List
-from items.player import Player
-from arena.food import Food
-from arena.wall import Wall
 
 
 class Board:
@@ -21,9 +18,6 @@ class Board:
             0 represents an empty position
             1 represents a snake part
             2 represents a food item
-            3 represents a wall
-    items: List
-        list of items on the board
 
 
     Methods:
@@ -36,9 +30,6 @@ class Board:
         get random position that is empty
     get_all_empty_positions -> List[(int, int)]
         get all empty positions
-    setup_board -> None
-        set up the board with all its elements and put the items
-        in a list.
     """
 
     width: int
@@ -50,7 +41,6 @@ class Board:
         self.width = width
         self.height = height
         self.board = [[0 for _ in range(width)] for _ in range(height)]
-        self.items = []
 
     def is_valid_position(self, x: int, y: int) -> bool:
         """Check if position is valid
@@ -95,19 +85,3 @@ class Board:
                 if self.board[y][x] == 0:
                     positions.append((x, y))
         return positions
-
-    def setup_board(self) -> None:
-        """
-        Set up the board with walls, food and a snake, and put the items
-        in a list.
-        """
-
-        for i in range(len(self.board)):
-            for j in range(len(self.board[i])):
-                pos = self.board[i][j]
-                if pos == 1:
-                    self.items.append(Player(j, i, Player.color, Player.size))
-                elif pos == 3:
-                    self.items.append(Wall(j, i, Wall.color, Wall.size))
-                elif pos == 2:
-                    self.items.append(Food(j, i, Food.color, Food.size))

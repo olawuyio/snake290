@@ -26,7 +26,7 @@ class RedItem(Item):
         pygame.draw.rect(scene, self.color, dimensions)
 
 
-class BlueItem(item):
+class BlueItem(Item):
     """
     Subclass of the item class
     Uses the initializer of the super class
