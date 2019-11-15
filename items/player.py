@@ -3,8 +3,8 @@ from typing import List
 import pygame
 from arena.board import Board
 from arena.food import Food
-from items.item import Item
 from arena.wall import Wall
+from src.state import State
 
 
 class Player:
@@ -34,14 +34,19 @@ class Player:
     positions: List[tuple]
     keys_pressed: pygame
     board: Board
+    food: Food
+    state: State
+    ate_food: bool
 
-    def __init__(self, x: int, y: int, board: Board, food: Food) -> None:
+    def __init__(self, x: int, y: int, board: Board, food: Food, state: State) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage.
         """
         self.size = 4
         self.keys_pressed = None
         self.board = board
         self.food = food
+        self.state = state
+        self.ate = False
         for i in range(y, y + 4):
             self.positions.append = (x, y)
 
