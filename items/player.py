@@ -45,9 +45,6 @@ class Player():
         for i in range(y, y + 4):
             self.positions.append = (x, y)
 
-    def get_size(self):
-        return len(self.positions)
-
     def update(self):
         for position in self.positions:
             self.board.board[position[0]][position[1]] = 1
@@ -98,4 +95,4 @@ class Player():
         """
         :return: the current score the player has
         """
-        return self.score
+        return len(self.positions)
