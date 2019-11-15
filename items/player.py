@@ -81,12 +81,6 @@ class Player:
                 self.food.eat()
                 self.food.spawn_food(self.board)
 
-    def grow(self) -> None:
-        """
-        Grows the snake by 1, add 1 to the score.
-        """
-        self.score += 1
-
     def get_score(self) -> int:
         """
         :return: the current score the player has
