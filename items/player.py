@@ -57,38 +57,29 @@ class Player:
     def get_head_position(self):
         return self.positions[0][0], self.positions[0][1]
 
-    def move(self, key_state: pygame.key) -> None:
+    def move(self, direction: tuple) -> None:
         """
         Move the snake in the <game> based on key presses.
         """
-        direction = (0, 0)
-        self.keys_pressed = pygame.key.get_pressed()
-        if self.keys_pressed[pygame.K_LEFT] or self.keys_pressed[pygame.K_a]:
-            direction = (-1, 0)
-        elif self.keys_pressed[pygame.K_RIGHT] or self.keys_pressed[pygame.K_d]:
-            direction = (0, 1)
-        elif self.keys_pressed[pygame.K_UP] or self.keys_pressed[pygame.K_w]:
-            direction = (0, -1)
-        elif self.keys_pressed[pygame.K_DOWN] or self.keys_pressed[pygame.K_s]:
-            direction = (0, 1)
-
         old_position = self.get_head_position()
         new_position = (direction[0] + old_position[0], direction[1] + old_position[1])
+        self.positions.append(new_position)
 
         # Check what object is at the new position
-        obj = Item.return_item(new_x, new_y)
-        if Board.is_position_empty():
-            self.x, self.y = new_x, new_y
-        elif isinstance(obj, Food):
-            self.food.eat()
-            self.x, self.y = new_x, new_y
-            self.grow()
-        elif isinstance(obj, Player):
-            self.x, self.y = new_x, new_y
-            game.game_over()
-        elif isinstance(obj, Wall):
-            self.x, self.y = new_x, new_y
-            game.game_over()
+        if not self.board.is_valid_position(new_position):
+            self.state.quit()
+        else:
+            if not self.ate:
+                del self.positions[-1]
+            self.ate = False
+            if self.board.get_code(new_position) == 0:
+                pass
+            elif self.board.get_code(new_position) == 1:
+                self.state.quit()
+            elif self.board.get_code(new_position) == 2:
+                self.ate = True
+                self.food.eat()
+                self.food.spawn_food(self.board)
 
     def grow(self) -> None:
         """
