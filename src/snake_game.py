@@ -37,8 +37,7 @@ class SnakeGame:
     running = True
 
     # DIMENSIONS FOR THE GAME BOARD
-    BOARD_HEIGHT = 480
-    BOARD_WIDTH = 640
+    DIMENSIONS = (640, 480)
 
     # Frame rate
     FPS = 50
@@ -49,10 +48,9 @@ class SnakeGame:
 
         self.b_color = 0, 0, 0
         self.state = State()
-        self.scene = pygame.display.set_mode((self.BOARD_WIDTH,
-                                              self.BOARD_HEIGHT))
+        self.scene = pygame.display.set_mode(self.DIMENSIONS)
         self.handler = RenderHandler([], self.scene)
-        self.board = Board(self.BOARD_HEIGHT // 10, self.BOARD_WIDTH // 10)
+        self.board = Board((self.DIMENSIONS[0] // 10, self.DIMENSIONS[1] // 10))
 
     def on_quit(self):
         """Close pygame window"""
