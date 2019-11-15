@@ -62,7 +62,7 @@ class SnakeGame:
         :param event: the event to handle
         """
         if event.type == pygame.QUIT:
-            self.running = False
+            self.state.quit()
 
     def handle_events(self):
         """Handle all current events"""
@@ -94,7 +94,7 @@ class SnakeGame:
         clock = pygame.time.Clock()
         self.scene.fill(self.b_color)
 
-        while self.running:
+        while self.state.running:
             # Ensure game runs at same speed across all devices
             clock.tick(self.FPS)
 
