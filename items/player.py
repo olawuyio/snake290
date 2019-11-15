@@ -7,7 +7,7 @@ from items.item import Item
 from arena.wall import Wall
 
 
-class Player():
+class Player:
     """
     A class to represent the snake on the board. This includes all
     attributes or methods that the snake must have.
