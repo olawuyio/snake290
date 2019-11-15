@@ -16,6 +16,7 @@ class State:
     running: the game is currently running
     pause: the game is paused
     menu: the game is on the main menu
+    end: the game is over
 
 
     """
@@ -44,6 +45,13 @@ class State:
         changes the state to "running"
         """
         self.state = "running"
+
+    def set_to_end(self) -> None:
+        """
+        changes the state to "end"
+        :return:
+        """
+        self.state = "end"
 
     def __eq__(self, other):
         return self.state == other

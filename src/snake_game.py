@@ -2,12 +2,13 @@
 SnakeGame is a representation of the classic game snake
 """
 
-from random import randint
 from typing import List
 
 import pygame
 
 from arena.board import Board
+from arena.food import Food
+from items.player import Player
 from src.render_handler import RenderHandler
 from src.state import State
 
@@ -33,6 +34,8 @@ class SnakeGame:
     b_color: tuple
     handler: RenderHandler
     board: Board
+    player: Player
+    food: Food
 
     running = True
 
@@ -52,19 +55,34 @@ class SnakeGame:
         self.scene = pygame.display.set_mode((self.BOARD_WIDTH,
                                               self.BOARD_HEIGHT))
         self.handler = RenderHandler([], self.scene)
-        self.board = Board(self.BOARD_HEIGHT // 10, self.BOARD_WIDTH // 10)
+        self.board = Board((self.BOARD_HEIGHT // 10, self.BOARD_WIDTH // 10))
+        self.food = Food(self.board)
+        self.player = Player(self.BOARD_HEIGHT // 20, self.BOARD_WIDTH // 20,
+                             self.board
+                             , self.food)
 
     def on_quit(self):
         """Close pygame window"""
         pygame.quit()
 
-    def on_event(self, event):
+    def on_event(self, event: pygame.event):
         """Handle a event.
 
         :param event: the event to handle
         """
         if event.type == pygame.QUIT:
             self.running = False
+
+        keys_pressed = pygame.key.get_pressed()
+
+        if keys_pressed[pygame.K_LEFT] or keys_pressed[pygame.K_a]:
+            self.player.move((-1, 0), self.state)
+        elif keys_pressed[pygame.K_RIGHT] or keys_pressed[pygame.K_d]:
+            self.player.move((1, 0), self.state)
+        elif keys_pressed[pygame.K_UP] or keys_pressed[pygame.K_w]:
+            self.player.move((0, -1), self.state)
+        elif keys_pressed[pygame.K_DOWN] or keys_pressed[pygame.K_s]:
+            self.player.move((0, 1), self.state)
 
     def handle_events(self):
         """Handle all current events"""
@@ -77,12 +95,15 @@ class SnakeGame:
         :return:
         """
         # Todo add all game ticks and remove random generator
-        board = self.board.board
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                board[i][j] = randint(0, 3)
+        # board = self.board.board
+        # for i in range(len(board)):
+        #     for j in range(len(board[i])):
+        #         board[i][j] = randint(0, 3)
 
-        return board
+        self.player.update()
+
+        # TODO redundant call that I should remove
+        return self.board.board
 
     # Todo get this to use states and render handler also remove test map
     def on_run(self) -> None:
@@ -105,6 +126,7 @@ class SnakeGame:
 
             # Todo add the menu and pause functions
             # Display the game while the state is running
+            print(self.state.state)
             if self.state == "running":
 
                 self.scene.fill(self.b_color)

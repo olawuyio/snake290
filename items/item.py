@@ -1,7 +1,5 @@
 import pygame
 
-from arena.board import Board
-
 
 class Item:
     """
@@ -71,16 +69,6 @@ class Item:
         :return: True if touching, False if not
         """
         return pygame.Rect.colliderect(item2)
-
-    def return_item(self, x: int, y: int) -> object:
-        """
-        Return the item that exists in the location given by
-        <x> and <y>. If there isn't an item in that location, return None.
-        """
-        for item in Board.items:
-            if item.x == x and item.y == y:
-                return item
-        return None
 
     def __str__(self) -> None:
         self.render()
