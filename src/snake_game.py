@@ -5,10 +5,10 @@ SnakeGame is a representation of the classic game snake
 from typing import List
 
 import pygame
+from items.snake import Snake
 
 from arena.board import Board
 from arena.food import Food
-from items.player import Player
 from src.render_handler import RenderHandler
 from src.state import State
 
@@ -57,11 +57,7 @@ class SnakeGame:
         self.board = Board((self.BOARD_HEIGHT // 10, self.BOARD_WIDTH // 10))
         self.food = Food(self.board)
 
-        self.players = []
-        self.players.append(
-            Player(self.BOARD_HEIGHT // 20, self.BOARD_WIDTH // 20,
-                   self.board
-                   , self.food))
+        self.snake = Snake(self.board, self.food)
 
     def on_quit(self):
         """Close pygame window"""
@@ -106,8 +102,7 @@ class SnakeGame:
         #     for j in range(len(board[i])):
         #         board[i][j] = randint(0, 3)
 
-        for i in range(len(self.players)):
-            self.players[i].update(self.players)
+        self.snake.update()
 
         # TODO redundant call that I should remove
         return self.board.board

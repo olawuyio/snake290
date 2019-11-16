@@ -3,7 +3,6 @@ from arena.food import Food
 from items.body import Body
 from items.player import Player
 
-
 class Snake:
     head: Player
     body: Body
