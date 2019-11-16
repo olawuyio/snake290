@@ -16,9 +16,6 @@ class Body(Player):
     """
     previous: Player
 
-    # TODO: Change next to not shadow built in name
-    node: Optional[Player]
-
     def __init__(self, x: int, y: int, previous: Player):
         Player.__init__(self, x, y, previous.board, previous.food)
 
@@ -28,7 +25,7 @@ class Body(Player):
         self.x_dir = previous.x_dir
         self.y_dir = previous.y_dir
 
-    def set_to_next(self, node: Player):
+    def set_to_next(self, node):
         self.node = node
 
     def has_next(self) -> bool:
@@ -37,11 +34,13 @@ class Body(Player):
         return True
 
     def update(self):
+        self.x_dir = self.previous.x_dir
+        self.y_dir = self.previous.y_dir
 
         self.board.board[self.x][self.y] = 0
 
         # Update the current item to take the position of the previous item
-        self.x = self.previous.x
-        self.y = self.previous.y
+        self.x = self.previous.x - self.previous.x_dir
+        self.y = self.previous.y - self.previous.y_dir
 
         self.board.board[self.x][self.y] = 1

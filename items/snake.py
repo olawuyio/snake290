@@ -9,7 +9,8 @@ class Snake:
     body: Body
 
     def __init__(self, board: Board, food: Food):
-        self.head = Player(self.BOARD_HEIGHT // 20, self.BOARD_WIDTH // 20,
+        x, y = board.dimensions
+        self.head = Player(x // 2, y // 2,
                            board, food)
         self.body = None
 
@@ -30,8 +31,13 @@ class Snake:
         """
         Grows the snake by 1, add 1 to the score.
         """
-        if not self.body:
-            self.body = (self.head.x, self.head.y, self.head)
+        if self.body == None:
+            self.body = Body(self.head.x, self.head.y, self.head)
+        elif self.body.node == None:
+            self.body.set_to_next(
+                Body(self.body.x - self.body.x_dir, self.body.y - self.body.y,
+                     self.body))
+
         else:
             curr = self.body
 
@@ -42,6 +48,6 @@ class Snake:
             curr = curr.node
 
             # Add body to last piece
-            curr.set_to_next(Player(curr.x - curr.x_dir, curr.y - curr.y, curr))
+            curr.set_to_next(Body(curr.x - curr.x_dir, curr.y - curr.y, curr))
 
         self.head.grow()

@@ -41,7 +41,7 @@ class Player():
     def __init__(self, x: int, y: int, board: Board, food: Food) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage.
         """
-        print("new player")
+        print("New Player")
         self.size = 4
         self.keys_pressed = None
         self.board = board
@@ -59,6 +59,7 @@ class Player():
 
     def update(self):
         # for position in self.positions:
+        self.board.board[self.x][self.y] = 0
 
         self.x += self.x_dir
         self.y += self.y_dir
@@ -67,13 +68,12 @@ class Player():
             self.food.eat()
             self.grow()
 
-        self.board.board[self.x][self.y] = 0
         self.board.board[self.x][self.y] = 1
 
     def get_head_position(self):
         return self.positions[0][0], self.positions[0][1]
 
-    def move(self, direction: tuple, game: State, players: List) -> None:
+    def move(self, direction: tuple, game: State) -> None:
         """
         Move the snake in the <game> based on key presses.
         """
@@ -95,7 +95,8 @@ class Player():
         """
         Grows the snake by 1, add 1 to the score.
         """
-        self.score += 1
+        # self.score += 1
+        pass
 
     def get_score(self) -> int:
         """

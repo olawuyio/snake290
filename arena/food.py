@@ -50,7 +50,6 @@ class Food:
 
     def eat(self) -> None:
         """Eat food on board"""
-        print("eaten")
         self.board.board[self.get_x()][self.get_y()] = 0
         self.on_board = False
 

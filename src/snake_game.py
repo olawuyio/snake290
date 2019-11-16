@@ -5,10 +5,10 @@ SnakeGame is a representation of the classic game snake
 from typing import List
 
 import pygame
-from items.snake import Snake
 
 from arena.board import Board
 from arena.food import Food
+from items.snake import Snake
 from src.render_handler import RenderHandler
 from src.state import State
 
@@ -43,7 +43,7 @@ class SnakeGame:
     BOARD_WIDTH = 640
 
     # Frame rate
-    FPS = 60
+    FPS = 15
 
     def __init__(self):
         pygame.init()
@@ -73,18 +73,15 @@ class SnakeGame:
 
         keys_pressed = pygame.key.get_pressed()
 
+        player = self.snake.head
         if keys_pressed[pygame.K_LEFT] or keys_pressed[pygame.K_a]:
-            for player in self.players:
-                player.move((-1, 0), self.state, self.players)
+            player.move((-1, 0), self.state)
         elif keys_pressed[pygame.K_RIGHT] or keys_pressed[pygame.K_d]:
-            for player in self.players:
-                player.move((1, 0), self.state, self.players)
+            player.move((1, 0), self.state)
         elif keys_pressed[pygame.K_UP] or keys_pressed[pygame.K_w]:
-            for player in self.players:
-                player.move((0, -1), self.state, self.players)
+            player.move((0, -1), self.state)
         elif keys_pressed[pygame.K_DOWN] or keys_pressed[pygame.K_s]:
-            for player in self.players:
-                player.move((0, 1), self.state, self.players)
+            player.move((0, 1), self.state)
 
     def handle_events(self):
         """Handle all current events"""
@@ -103,6 +100,9 @@ class SnakeGame:
         #         board[i][j] = randint(0, 3)
 
         self.snake.update()
+
+        if not self.food.on_board:
+            self.food.spawn_food(self.board)
 
         # TODO redundant call that I should remove
         return self.board.board

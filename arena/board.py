@@ -92,8 +92,8 @@ class Board:
         :return: a list containing tuples (x, y) of all empty positions
         """
         positions = []
-        for y in range(self.get_height()):
-            for x in range(self.get_width()):
+        for y in range(self.get_height() - 1):
+            for x in range(self.get_width() - 1):
                 if self.board[y][x] == 0:
-                    positions.append((x, y))
+                    positions.append((y, x))
         return positions
