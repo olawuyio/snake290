@@ -1,3 +1,5 @@
+from typing import List
+
 import pygame
 
 from arena.board import Board
@@ -18,7 +20,7 @@ class Player():
         the keys the player presses
     board: Board
         board that the snake is on
-
+    next: The next body piece on the snake
     Methods:
     ========
     move(SnakeGame) -> None
@@ -39,6 +41,7 @@ class Player():
     def __init__(self, x: int, y: int, board: Board, food: Food) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage.
         """
+        print("new player")
         self.size = 4
         self.keys_pressed = None
         self.board = board
@@ -46,7 +49,6 @@ class Player():
         self.x, self.y = x, y
 
         self.x_dir, self.y_dir = 0, 0
-
         # self.positions = []
         #
         # for i in range(y, y + 4):
@@ -58,50 +60,29 @@ class Player():
     def update(self):
         # for position in self.positions:
 
-        self.board.board[self.x][self.y] = 0
         self.x += self.x_dir
         self.y += self.y_dir
 
+        if self.board.board[self.x][self.y] == 2:
+            self.food.eat()
+            self.grow()
+
+        self.board.board[self.x][self.y] = 0
         self.board.board[self.x][self.y] = 1
 
     def get_head_position(self):
         return self.positions[0][0], self.positions[0][1]
 
-    def move(self, direction: tuple, game: State) -> None:
+    def move(self, direction: tuple, game: State, players: List) -> None:
         """
         Move the snake in the <game> based on key presses.
         """
-        # direction = (0, 0)
 
-        # self.keys_pressed = pygame.key.get_pressed()
-        # if self.keys_pressed[pygame.K_LEFT] or self.keys_pressed[pygame.K_a]:
-        #     direction = (-1, 0)
-        # elif self.keys_pressed[pygame.K_RIGHT] or self.keys_pressed[pygame.K_d]:
-        #     direction = (0, 1)
-        # elif self.keys_pressed[pygame.K_UP] or self.keys_pressed[pygame.K_w]:
-        #     direction = (0, -1)
-        # elif self.keys_pressed[pygame.K_DOWN] or self.keys_pressed[pygame.K_s]:
-        #     direction = (0, 1)
+        if self.board.board[self.x][self.y] == 2:
+            self.food.eat()
+            self.grow(self.food)
 
-        # old_position = self.get_head_position()
-        # print(direction)
-        # new_x = direction[0] + old_position[0]
-        # new_y = direction[1] + old_position[1]
-        # print(new_x)
-        # print(new_y)
-        # Check what object is at the new position
-        # obj = self.return_item(new_x, new_y)
-
-        # if Board.is_position_empty(self.board, (new_x, new_y)):
-        #     self.x, self.y = new_x, new_y
-        #
-        # elif self.board.board[self.x][self.y] == 2:
-        #     self.food.eat()
-        #     self.x, self.y = new_x, new_y
-        #     self.grow()
-        #
         # elif self.board.board[self.x][self.y] == 1:
-        #     self.x, self.y = new_x, new_y
         #     # game.set_to_end()
         #
         # elif self.board.board[self.x][self.y] == 3:
@@ -131,3 +112,6 @@ class Player():
             if item.x == x and item.y == y:
                 return item
         return None
+
+    def __str__(self):
+        print(self.x, self.y)

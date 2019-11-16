@@ -34,9 +34,8 @@ class SnakeGame:
     b_color: tuple
     handler: RenderHandler
     board: Board
-    player: Player
     food: Food
-
+    snake: Snake
     running = True
 
     # DIMENSIONS FOR THE GAME BOARD
@@ -44,7 +43,7 @@ class SnakeGame:
     BOARD_WIDTH = 640
 
     # Frame rate
-    FPS = 50
+    FPS = 60
 
     def __init__(self):
         pygame.init()
@@ -57,9 +56,12 @@ class SnakeGame:
         self.handler = RenderHandler([], self.scene)
         self.board = Board((self.BOARD_HEIGHT // 10, self.BOARD_WIDTH // 10))
         self.food = Food(self.board)
-        self.player = Player(self.BOARD_HEIGHT // 20, self.BOARD_WIDTH // 20,
-                             self.board
-                             , self.food)
+
+        self.players = []
+        self.players.append(
+            Player(self.BOARD_HEIGHT // 20, self.BOARD_WIDTH // 20,
+                   self.board
+                   , self.food))
 
     def on_quit(self):
         """Close pygame window"""
@@ -76,13 +78,17 @@ class SnakeGame:
         keys_pressed = pygame.key.get_pressed()
 
         if keys_pressed[pygame.K_LEFT] or keys_pressed[pygame.K_a]:
-            self.player.move((-1, 0), self.state)
+            for player in self.players:
+                player.move((-1, 0), self.state, self.players)
         elif keys_pressed[pygame.K_RIGHT] or keys_pressed[pygame.K_d]:
-            self.player.move((1, 0), self.state)
+            for player in self.players:
+                player.move((1, 0), self.state, self.players)
         elif keys_pressed[pygame.K_UP] or keys_pressed[pygame.K_w]:
-            self.player.move((0, -1), self.state)
+            for player in self.players:
+                player.move((0, -1), self.state, self.players)
         elif keys_pressed[pygame.K_DOWN] or keys_pressed[pygame.K_s]:
-            self.player.move((0, 1), self.state)
+            for player in self.players:
+                player.move((0, 1), self.state, self.players)
 
     def handle_events(self):
         """Handle all current events"""
@@ -100,7 +106,8 @@ class SnakeGame:
         #     for j in range(len(board[i])):
         #         board[i][j] = randint(0, 3)
 
-        self.player.update()
+        for i in range(len(self.players)):
+            self.players[i].update(self.players)
 
         # TODO redundant call that I should remove
         return self.board.board
@@ -126,7 +133,8 @@ class SnakeGame:
 
             # Todo add the menu and pause functions
             # Display the game while the state is running
-            print(self.state.state)
+            # print(self.state.state)
+
             if self.state == "running":
 
                 self.scene.fill(self.b_color)
