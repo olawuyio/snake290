@@ -31,12 +31,14 @@ class Player:
         return the current score of the game
     """
 
-    positions: List[tuple]
+    positions: List[List[int]]
     keys_pressed: pygame
     board: Board
     food: Food
     state: State
     ate_food: bool
+    x_dir: int
+    y_dir: int
 
     def __init__(self, x: int, y: int, board: Board, food: Food, state: State) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage.
@@ -48,12 +50,17 @@ class Player:
         self.state = state
         self.ate = False
         self.positions = []
+        self.x_dir = 0
+        self.y_dir = 0
         for i in range(y, y + 4):
-            self.positions.append((x, y))
+            self.positions.append([x, y])
 
     def update(self):
         for position in self.positions:
+
             # print(position[0], position[1])
+            position[0] += self.x_dir
+            position[1] += self.y_dir
             self.board.board[position[0]][position[1]] = 1
 
     def get_head_position(self):
@@ -63,9 +70,11 @@ class Player:
         """
         Move the snake in the <game> based on key presses.
         """
+        self.x_dir, self.y_dir = direction
 
         old_position = self.get_head_position()
-        new_position = (direction[0] + old_position[0], direction[1] + old_position[1])
+        new_position = [self.x_dir + old_position[0],
+                        self.y_dir + old_position[1]]
         print(new_position)
         self.positions.append(new_position)
         print(self.positions)

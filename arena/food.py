@@ -31,7 +31,10 @@ class Food:
         """Initialize food on board"""
         self.position = board.get_random_empty_position()
         self.board = board
-        self.board.board[self.get_x()][self.get_y()] = 2
+        x = self.get_x()
+        y = self.get_y()
+        print(x, y)
+        self.board.board[x][y] = 2
         self.on_board = True
 
     def get_x(self):
