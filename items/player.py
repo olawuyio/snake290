@@ -1,9 +1,9 @@
 from typing import List
 
 import pygame
+
 from arena.board import Board
 from arena.food import Food
-from arena.wall import Wall
 from src.state import State
 
 
@@ -47,11 +47,13 @@ class Player:
         self.food = food
         self.state = state
         self.ate = False
+        self.positions = []
         for i in range(y, y + 4):
-            self.positions.append = (x, y)
+            self.positions.append((x, y))
 
     def update(self):
         for position in self.positions:
+            # print(position[0], position[1])
             self.board.board[position[0]][position[1]] = 1
 
     def get_head_position(self):
@@ -61,10 +63,12 @@ class Player:
         """
         Move the snake in the <game> based on key presses.
         """
+
         old_position = self.get_head_position()
         new_position = (direction[0] + old_position[0], direction[1] + old_position[1])
+        print(new_position)
         self.positions.append(new_position)
-
+        print(self.positions)
         # Check what object is at the new position
         if not self.board.is_valid_position(new_position):
             self.state.quit()

@@ -2,12 +2,13 @@
 SnakeGame is a representation of the classic game snake
 """
 
-from random import randint
 from typing import List
 
 import pygame
 
 from arena.board import Board
+from arena.food import Food
+from items.player import Player
 from src.render_handler import RenderHandler
 from src.state import State
 
@@ -33,7 +34,8 @@ class SnakeGame:
     b_color: tuple
     handler: RenderHandler
     board: Board
-
+    player: Player
+    food: Food
     running = True
 
     # DIMENSIONS FOR THE GAME BOARD
@@ -52,17 +54,37 @@ class SnakeGame:
         self.handler = RenderHandler([], self.scene)
         self.board = Board((self.DIMENSIONS[0] // 10, self.DIMENSIONS[1] // 10))
 
+        self.food = Food(self.board)
+        self.player = Player(self.DIMENSIONS[0] // 20, self.DIMENSIONS[1] // 20,
+                             self.board, self.food, self.state)
+
     def on_quit(self):
         """Close pygame window"""
         pygame.quit()
 
-    def on_event(self, event):
+    def on_event(self, event: pygame.event):
         """Handle a event.
 
         :param event: the event to handle
         """
         if event.type == pygame.QUIT:
-            self.state.quit()
+            self.on_quit()
+            # self.running = False
+
+        keys_pressed = pygame.key.get_pressed()
+
+        if keys_pressed[pygame.K_LEFT] or keys_pressed[pygame.K_a]:
+            print("a")
+            self.player.move((-1, 0))
+        elif keys_pressed[pygame.K_RIGHT] or keys_pressed[pygame.K_d]:
+            print("d")
+            self.player.move((1, 0))
+        elif keys_pressed[pygame.K_UP] or keys_pressed[pygame.K_w]:
+            print("w")
+            self.player.move((0, -1))
+        elif keys_pressed[pygame.K_DOWN] or keys_pressed[pygame.K_s]:
+            print("s")
+            self.player.move((0, 1))
 
     def handle_events(self):
         """Handle all current events"""
@@ -76,9 +98,11 @@ class SnakeGame:
         """
         # Todo add all game ticks and remove random generator
         board = self.board.board
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                board[i][j] = randint(0, 3)
+        # for i in range(len(board)):
+        #     for j in range(len(board[i])):
+        #         board[i][j] = randint(0, 3)
+
+        self.player.update()
 
         return board
 
