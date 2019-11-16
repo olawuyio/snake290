@@ -5,6 +5,7 @@ SnakeGame is a representation of the classic game snake
 from typing import List
 
 import pygame
+from items.snake import Snake
 
 from arena.board import Board
 from arena.food import Food
