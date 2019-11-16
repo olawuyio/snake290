@@ -31,7 +31,7 @@ class Player:
         return the current score of the game
     """
 
-    positions: List[List[int]]
+    positions: List[tuple]
     keys_pressed: pygame
     board: Board
     food: Food
@@ -50,17 +50,15 @@ class Player:
         self.state = state
         self.ate = False
         self.positions = []
-        self.x_dir = 0
-        self.y_dir = 0
         for i in range(y, y + 4):
-            self.positions.append([x, y])
+            self.positions.append((x, i))
 
     def update(self):
+        for i in range(len(self.board.board)):
+            for j in range(len(self.board.board[i])):
+                if self.board.board[i][j] == 1:
+                    self.board.board[i][j] = 0
         for position in self.positions:
-
-            # print(position[0], position[1])
-            position[0] += self.x_dir
-            position[1] += self.y_dir
             self.board.board[position[0]][position[1]] = 1
 
     def get_head_position(self):
@@ -70,14 +68,9 @@ class Player:
         """
         Move the snake in the <game> based on key presses.
         """
-        self.x_dir, self.y_dir = direction
-
         old_position = self.get_head_position()
-        new_position = [self.x_dir + old_position[0],
-                        self.y_dir + old_position[1]]
-        print(new_position)
-        self.positions.append(new_position)
-        print(self.positions)
+        new_position = (direction[0] + old_position[0], direction[1] + old_position[1])
+        self.positions.insert(0, new_position)
         # Check what object is at the new position
         if not self.board.is_valid_position(new_position):
             self.state.quit()
@@ -93,6 +86,7 @@ class Player:
                 self.ate = True
                 self.food.eat()
                 self.food.spawn_food(self.board)
+        print(self.positions)
 
     def get_score(self) -> int:
         """
