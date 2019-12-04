@@ -70,8 +70,8 @@ class Player:
         self.y_dir = 0
 
         # start the list of positions with the head of the player
-        for i in range(y, y + 4):
-            self.positions.append([x, y])
+        for y_temp in range(y, y + 4):
+            self.positions.append([x, y_temp])
 
     def update(self) -> None:
         """Moves the player in the appropriate direction."""
