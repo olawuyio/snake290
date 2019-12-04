@@ -45,7 +45,10 @@ doc: all documentation
 
 ## Advanced code overview
 
-.
+The code is structured into three parts: the game, arena, and items.
+The game holds the Snake_game, State, and Render Handler classes,
+the arena holds the Board class, and the items holds the Player,
+Food, and Wall classes.
 
 ## Usage
 
