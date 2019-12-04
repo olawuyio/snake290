@@ -75,6 +75,10 @@ class Player:
 
     def update(self) -> None:
         """Moves the player in the appropriate direction."""
+        for i in range(len(self.board.board)):
+            for j in range(len(self.board.board[i])):
+                if self.board.board[i][j] == 1:
+                    self.board.board[i][j] = 0
         for position in self.positions:
 
             # self.board.board[position[0]][position[1]] = 0
