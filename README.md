@@ -75,3 +75,49 @@ your number associated with the object
 
 Please document your code and add to the doc file how your code works, as well
 as edit the readme file.
+
+## Extending the code
+Although there are multiple features the user can add to the game, a few that we 
+would like to mention are below.  
+
+1. Changing background colour.
+    * Change the ```background_color``` attribute in the ```__init__```
+     method inside the snake_game class.
+    * For instance changing ```self.background_color = 0, 0, 0``` to 
+    ```self.background_color = 255, 255, 255``` turns the background white.
+
+2. Changing player and item colour
+    * To change the item and player colour, go into the ```render_handler``` 
+    class and update the ```food_color```, ```player_color```, and 
+    ```wall_color``` attributes in the ```update``` 
+    method to your desired colours.
+    * An example of this is updating ```self.player_color = 0, 255, 0``` to 
+    ```self.player_color = 255, 0, 255 ``` will make the snake purple. 
+
+3. Adding obstacles to the map
+    * In the ```__init__``` method inside the board class, change the default 
+    initializer to a preset array, adding a three where a wall should be.
+    Note the board should be a 48 by 64 grid. 
+    * A smaller 10 by 5 example would look like
+      ```
+      Self.board = [[3,3,3,3,3,3,3,3,3,3]] 
+                   [[3,3,0,0,0,0,3,0,0,3]]
+                   [[3,0,3,3,1,0,0,0,0,3]]
+                   [[3,0,0,0,0,0,0,0,0,3]]
+                   [[3,3,3,3,3,3,3,3,3,3]]
+       ```
+      where the 3's on the board represent a wall.
+
+## Our contributions
+
+##### Syed Jaffay 
+My main contribution to the game was the rendering components. I was in charge 
+of designing how the game would look and rendering it. This largely involved 
+the classes, Render Handler, and Snake game. Notably, the Render Handler was 
+designed to read a 2D array of numbers and display that as objects onto Pygame. 
+While the Snake game class was in charge of updating a 2D array and contained 
+the loop which ran the game. I also created the states class and items class 
+which aided in managing the looping. Furthermore, my contribution to the readme 
+file was how to add new features. Mainly, I talked about how the reader could 
+make changes. My last contribution was checking over my team's code and making 
+sure it followed the proper guidelines. 
