@@ -49,6 +49,10 @@ The code is structured into three parts: the game, arena, and items.
 The game holds the Snake_game, State, and Render Handler classes,
 the arena holds the Board class, and the items holds the Player,
 Food, and Wall classes.
+The Board class contains a 2d array, each integer represents an element 
+on the board, which will be modified in player and food class whenever 
+the snake moves and a new food appears. While the index representing the walls 
+shall remain unchanged. 
 
 ## Usage
 
