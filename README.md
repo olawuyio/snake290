@@ -2,6 +2,25 @@
 
 SnakeGame is a compilation of code that deals with game logic and rendering
 
+## Installation
+
+1. Make sure that Python 3 installed. If not, you can download and install it [here](https://www.python.org/downloads/).
+
+2. Install [pygame](https://www.pygame.org) by running the following command:
+```
+pip install pygame
+```
+
+3. [Download project files](https://github.com/olawuyio/snake290/archive/master.zip) or clone repo with the following command:
+```
+git clone https://github.com/olawuyio/snake290
+```
+
+4. From the project root folder, run `src/snake_game.py` with Python
+```
+python src/snake_game.py
+```
+
 ## Libraries
 
 The list of libraries used are found in the requirements.txt file on the root directory.
