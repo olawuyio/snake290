@@ -80,7 +80,7 @@ as edit the readme file.
 Although there are multiple features the user can add to the game, a few that we 
 would like to mention are below.  
 
-1. Changing background colour.
+1. Changing background colour
     * Change the ```background_color``` attribute in the ```__init__```
      method inside the snake_game class.
     * For instance changing ```self.background_color = 0, 0, 0``` to 
