@@ -2,6 +2,8 @@
 
 SnakeGame is a compilation of code that deals with game logic and rendering
 
+![Snake Game](/images/snake_game.png?raw=true)
+
 ## Installation
 
 1. Make sure that Python 3 installed. If not, you can download and install it [here](https://www.python.org/downloads/).
