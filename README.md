@@ -22,6 +22,11 @@ git clone https://github.com/olawuyio/snake290
 ```
 python src/snake_game.py
 ```
+## How To Play
+1. Using "W", "A", "S", "D" to move the direction the snake is moving to. "W" to move up, 
+"A" to move to the left, "S" to move down, and "D" to move to the right.
+2. Control the snake to avoid touching the wall or the snake's body with it's head.
+3. Control the snake to consume the food to gain score.
 
 ## Libraries
 
