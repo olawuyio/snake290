@@ -39,7 +39,7 @@ class SnakeGame:
     running = True
 
     DIMENSIONS = (640, 480)  # Width and height of the board
-    FPS = 60  # Frame rate the game should run at
+    FPS = 10  # Frame rate the game should run at
     SCALE = 10  # The scale between the pygame screen and game board
 
     def __init__(self):
