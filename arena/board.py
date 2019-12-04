@@ -3,8 +3,7 @@ from typing import List, Optional
 
 
 class Board:
-    """
-    Represents board containing snake and food.
+    """Represents board containing snake and food.
 
     Attributes:
     ===========
@@ -45,9 +44,7 @@ class Board:
     board: List[List[int]]
 
     def __init__(self, dimensions: tuple):
-        """
-        Initialize board with specified width and height dimensions.
-        """
+        """Initialize board with specified width and height dimensions."""
         self.dimensions = dimensions
         self.board = self._initialize_board()
 
@@ -112,8 +109,8 @@ class Board:
         return positions
 
     def _initialize_board(self) -> List[List[int]]:
-        """
-        Creates a basic 2D array of integers with 3's on the boarder.
+        """Creates a basic 2D array of integers with 3's on the boarder.
+
         :return: game board as 2D array of integers.
         """
         board = [[0 for _ in range(self.get_width())] for _ in

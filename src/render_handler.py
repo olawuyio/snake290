@@ -6,8 +6,7 @@ from items.item import Item
 
 
 class RenderHandler:
-    """
-    Takes a 2d array and is able to convert that into objects for pygame.
+    """Takes a 2d array and is able to convert that into objects for pygame.
 
     Attributes
     ==========
@@ -38,7 +37,7 @@ class RenderHandler:
     SCALE = 10  # Constant to scale the 2d array to pygame surface
 
     def __init__(self, game: List[List[int]], screen: pygame.Surface):
-        # Initialize an empty game board
+        """Initialize an empty game board"""
         for i in range(len(game)):
             for j in range(len(game[i])):
                 self.objects[i][j] = None
@@ -47,8 +46,7 @@ class RenderHandler:
         self.screen = screen
 
     def update(self, game: List[List[int]]) -> None:
-        """
-        Loop through the game list and mirror it to a list of objects such that
+        """Loop through the game list and mirror it to a list of objects such that
         the objects represent visually what is going on in the game.
 
         Both lists are iterated on in parallel, if the object list contains an
@@ -99,9 +97,7 @@ class RenderHandler:
         self.objects = temp_list
 
     def render(self) -> None:
-        """
-        Goes through each object in the game and renders it.
-        """
+        """Goes through each object in the game and renders it."""
         for row in self.objects:
             for item in row:
                 if item:  # Ensure the spot is not empty

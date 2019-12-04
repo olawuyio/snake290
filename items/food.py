@@ -2,8 +2,7 @@ from arena.board import Board
 
 
 class Food:
-    """
-    Represents food on the board.
+    """Represents food on the board.
 
     Attributes:
     ===========

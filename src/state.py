@@ -1,6 +1,5 @@
 class State:
-    """
-    Defines a string which represents what the game should be doing.
+    """Defines a string which represents what the game should be doing.
 
     Public attributes:
     ==================
@@ -16,28 +15,29 @@ class State:
     running (default): the game is currently running
     pause: the game is paused
     menu: the game is on the main menu
-
     """
     running: bool
     state: str
 
     def __init__(self):
+        """Initialize state."""
         self.running = True
         self.state = "running"
 
     def set_to_menu(self) -> None:
-        """changes the state to "menu"."""
+        """Changes state to "menu"."""
         self.state = "menu"
 
     def set_to_pause(self) -> None:
-        """changes the state to "pause"."""
+        """Changes state to "pause"."""
         self.state = "pause"
 
     def set_to_running(self) -> None:
-        """changes the state to "running"."""
+        """Changes state to "running"."""
         self.state = "running"
 
     def quit(self):
+        """Changes state to "quit"."""
         self.running = False
 
     def __eq__(self, other):

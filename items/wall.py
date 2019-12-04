@@ -1,6 +1,5 @@
 class Wall:
-    """
-    A class to represent the wall on the board.
+    """A class to represent the wall on the board.
 
     Attributes:
     ===========

@@ -10,8 +10,7 @@ from src.state import State
 
 
 class SnakeGame:
-    """
-    Handles running the game and defining the pygame stage.
+    """Handles running the game and defining the pygame stage.
 
     Attributes
     ==========
@@ -43,11 +42,12 @@ class SnakeGame:
     SCALE = 10  # The scale between the pygame screen and game board
 
     def __init__(self):
+        """Initialize game."""
 
         # Initialize pygame window
         pygame.init()
         pygame.display.set_caption("Snake Game")
-        self.scene = pygame.display.set_mode(self.DIMENSIONS)
+        self.scene = pygame.display.set_mode((800, 480))
 
         # Initialize backend components
         self.background_color = 0, 0, 0
@@ -102,8 +102,7 @@ class SnakeGame:
             self.player.move((self.player.x_dir, self.player.y_dir))
 
     def update(self) -> List[List[int]]:
-        """
-        Handles all game ticks.
+        """Handles all game ticks.
 
         :return: game board as 2D array of integers
         """
@@ -113,8 +112,7 @@ class SnakeGame:
         return board
 
     def on_run(self) -> None:
-        """
-        Starts the game and keeps running it, updating game logic and rendering
+        """Starts the game and keeps running it, updating game logic and rendering
         items.
         """
         self.state.set_to_running()

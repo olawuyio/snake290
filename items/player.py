@@ -8,8 +8,7 @@ from src.state import State
 
 
 class Player:
-    """
-    A class to represent the snake on the board. This includes all
+    """A class to represent the snake on the board. This includes all
     attributes or methods that the snake must have.
 
     Attributes:
@@ -37,8 +36,8 @@ class Player:
         update the position of the Snake
     grow(self) -> None
         grow the snake by 1, also increase 1 to the score
-    get_head_position(self) ->
-    get_score() -> Int
+    get_head_position(self) -> tuple
+    get_score() -> int
         return the current score of the game
 
     Representation Invariants
@@ -83,8 +82,9 @@ class Player:
             self.board.board[position[0]][position[1]] = 1
 
     def move(self, direction: tuple) -> None:
-        """
-        Change the players direction in the <game> based on key presses.
+        """Change the players direction in the <game> based on key presses.
+
+        :param direction: direction of move event
         """
         self.x_dir, self.y_dir = direction
         old_position = self.get_head_position()
@@ -116,7 +116,15 @@ class Player:
             self.state.quit()
 
     def get_head_position(self) -> (int, int):
+        """Get head position
+
+        :return: head position
+        """
         return self.positions[0][0], self.positions[0][1]
 
     def get_score(self) -> int:
+        """Get player score
+
+        :return: player score
+        """
         return len(self.positions)
