@@ -3,7 +3,7 @@ from arena.board import Board
 
 class Food:
     """
-    Represents food on the board
+    Represents food on the board.
 
     Attributes:
     ===========
@@ -28,24 +28,23 @@ class Food:
     on_board: bool
 
     def __init__(self, board: Board):
-        """Initialize food on board"""
+        """Initialize food on board."""
         self.position = board.get_random_empty_position()
         self.board = board
         x = self.get_x()
         y = self.get_y()
-        print(x, y)
         self.board.board[x][y] = 2
         self.on_board = True
 
     def get_x(self):
-        """Get x coordinate of food
+        """Get x coordinate of food.
 
         :return: x coordinate of food
         """
         return self.position[0]
 
     def get_y(self):
-        """Get y coordinate of food
+        """Get y coordinate of food.
 
         :return: y coordinate of food
         """
@@ -57,7 +56,7 @@ class Food:
         self.on_board = False
 
     def spawn_food(self, board: Board) -> None:
-        """Spawn food item on board
+        """Spawn food item on board.
 
         :param board: board to spawn food
         """

@@ -7,12 +7,12 @@ from items.item import Item
 
 class RenderHandler:
     """
-    Takes a 2d array and is able to convert that into objects for pygame
+    Takes a 2d array and is able to convert that into objects for pygame.
 
     Attributes
     ==========
     objects: List[[]]
-        A list designed to mirror the game bord with objects that represent the
+        A list designed to mirror the game board with objects that represent the
         values rather than numbers. This list may contain none, which represents
         that that spot is empty
     screen: pygame.Surface
@@ -20,9 +20,11 @@ class RenderHandler:
 
     Methods
     =======
-    update(List[[]] -> none
+    update(List[[]]) -> none
         takes in a list representing the game in terms of ints, and converts
         that into a mirrored list but with objects
+    render(self) -> none
+        goes through objects and individually renders each one
 
     Representation Invariants
     =========================
@@ -32,15 +34,10 @@ class RenderHandler:
     """
     objects: List[List[int]]
     screen: pygame.Surface
-    BLUE = (0, 0, 255)
-    GREEN = (0, 255, 0)
-    RED = (255, 0, 0)
+
     SCALE = 10  # Constant to scale the 2d array to pygame surface
 
     def __init__(self, game: List[List[int]], screen: pygame.Surface):
-
-        # Todo: make the dimensions relative to a global variable
-
         # Initialize an empty game board
         for i in range(len(game)):
             for j in range(len(game[i])):
@@ -52,16 +49,19 @@ class RenderHandler:
     def update(self, game: List[List[int]]) -> None:
         """
         Loop through the game list and mirror it to a list of objects such that
-        the objects represent visually what is going on in the game
+        the objects represent visually what is going on in the game.
 
         Both lists are iterated on in parallel, if the object list contains an
         item where the new game list is empty remove that item. If they are
-        different change it to the new one
+        different change it to the new one.
         """
 
-        # Todo: Add constants to ensure the scale of the items is always correct
+        wall_color = (0, 0, 255)
+        player_color = (0, 255, 0)
+        food_color = (255, 0, 0)
 
         temp_list = []
+
         for row in range(len(game)):
             temp_col = []
 
@@ -73,19 +73,22 @@ class RenderHandler:
                 if current == 0:
                     temp_col.append(None)
 
-                elif current == 1:  # add red item
+                # add player object
+                elif current == 1:
                     item = Item((row * self.SCALE, col * self.SCALE),
-                                self.GREEN)
+                                player_color)
                     temp_col.append(item)
 
-                elif current == 2:  # add blue item
+                # add food object
+                elif current == 2:
                     item = Item((row * self.SCALE, col * self.SCALE),
-                                self.RED)
+                                food_color)
                     temp_col.append(item)
 
+                # add wall object
                 elif current == 3:  # add green item
                     item = Item((row * self.SCALE, col * self.SCALE),
-                                self.BLUE)
+                                wall_color)
                     temp_col.append(item)
 
                 else:
@@ -95,18 +98,9 @@ class RenderHandler:
 
         self.objects = temp_list
 
-    # # Todo: Remove this method
-    # def draw(self) -> None:
-    #     red_item = RedItem((300, 200), (20, 20))
-    #     green_item = RedItem((100, 200), (20, 20))
-    #     blue_item = RedItem((100, 100), (20, 20))
-    #     red_item.render(self.screen)
-    #     green_item.render(self.screen)
-    #     blue_item.render(self.screen)
-
     def render(self) -> None:
         """
-        Goes through each object in the game and renders it
+        Goes through each object in the game and renders it.
         """
         for row in self.objects:
             for item in row:

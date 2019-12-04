@@ -52,21 +52,21 @@ class Item:
     def render(self, scene: pygame.Surface) -> None:
         """
         Defines how the function should be drawn on the screen
-        :param scene: Main scene the game is showing
+        :param scene: Main scene the game is showing.
         """
         dimensions = (self.x, self.y, self.WIDTH, self.HEIGHT)
         pygame.draw.rect(scene, self.color, dimensions)
 
     def update(self, position: tuple) -> None:
         """
-        Updates the x y coordinate of the game
+        Updates the x y coordinate of the game.
         :param position: a tuple in the form (x: int, y: int)
         """
         self.x, self.y = position
 
     def in_bound(self, item2) -> bool:
         """
-        checks to see if two objects are touching
+        checks to see if two objects are touching.
         :param item2: an item object
         :return: True if touching, False if not
         """

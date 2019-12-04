@@ -18,7 +18,6 @@ class Wall:
     color: tuple
 
     def __init__(self) -> None:
-        """Initialize a wall
-        """
+        """Initialize a wall."""
         self.color = (255, 170, 29)
         self.size = 2
