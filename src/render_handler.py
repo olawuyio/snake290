@@ -75,17 +75,17 @@ class RenderHandler:
 
                 elif current == 1:  # add red item
                     item = Item((row * self.SCALE, col * self.SCALE),
-                                self.RED)
+                                self.GREEN)
                     temp_col.append(item)
 
                 elif current == 2:  # add blue item
                     item = Item((row * self.SCALE, col * self.SCALE),
-                                self.BLUE)
+                                self.RED)
                     temp_col.append(item)
 
                 elif current == 3:  # add green item
                     item = Item((row * self.SCALE, col * self.SCALE),
-                                self.GREEN)
+                                self.BLUE)
                     temp_col.append(item)
 
                 else:
