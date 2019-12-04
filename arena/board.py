@@ -49,8 +49,7 @@ class Board:
         Initialize board with specified width and height dimensions.
         """
         self.dimensions = dimensions
-        self.board = [[0 for _ in range(self.get_width())] for _ in
-                      range(self.get_height())]
+        self.board = self._initialize_board()
 
     def get_width(self) -> int:
         """Get board width.
@@ -111,3 +110,17 @@ class Board:
                 if self.board[y][x] == 0:
                     positions.append((y, x))
         return positions
+
+    def _initialize_board(self) -> List[List[int]]:
+        """
+        Creates a basic 2D array of integers with 3's on the boarder.
+        :return: game board as 2D array of integers.
+        """
+        board = [[0 for _ in range(self.get_width())] for _ in
+                 range(self.get_height())]
+
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if i == 0 or i == 63 or j == 0 or j == 47:
+                    board[i][j] = 3
+        return board

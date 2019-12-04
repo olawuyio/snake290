@@ -56,7 +56,8 @@ class Player:
     x_dir: int
     y_dir: int
 
-    def __init__(self, x: int, y: int, board: Board, food: Food, state: State) -> None:
+    def __init__(self, x: int, y: int, board: Board, food: Food,
+                 state: State) -> None:
         """Initialize a Snake at the position <x> and <y> on the stage."""
         self.size = 4
         self.keys_pressed = None
@@ -87,8 +88,8 @@ class Player:
         """
         self.x_dir, self.y_dir = direction
         old_position = self.get_head_position()
-        new_position = [self.x_dir + old_position[0],
-                        self.y_dir + old_position[1]]
+        new_position = (self.x_dir + old_position[0],
+                        self.y_dir + old_position[1])
         self.positions.append(new_position)
 
         # Check what object is at the new position
@@ -112,6 +113,10 @@ class Player:
                 self.ate = True
                 self.food.eat()
                 self.food.spawn_food(self.board)
+
+            # Player interacts with wall
+            elif self.board.get_code(new_position) == 3:
+                self.state.quit()
 
     def get_head_position(self) -> (int, int):
         return self.positions[0][0], self.positions[0][1]

@@ -1,7 +1,3 @@
-"""
-SnakeGame is a representation of the classic game snake
-"""
-
 from typing import List
 
 import pygame
@@ -43,7 +39,8 @@ class SnakeGame:
     running = True
 
     DIMENSIONS = (640, 480)  # Width and height of the board
-    FPS = 50  # Frame rate the game should run at
+    FPS = 60  # Frame rate the game should run at
+    SCALE = 10  # The scale between the pygame screen and game board
 
     def __init__(self):
 
@@ -54,7 +51,7 @@ class SnakeGame:
 
         # Initialize backend components
         self.background_color = 0, 0, 0
-        self.board = Board((self.DIMENSIONS[0] // 10, self.DIMENSIONS[1] // 10))
+        self.board = Board((self.DIMENSIONS[1] // 10, self.DIMENSIONS[0] // 10))
         self.state = State()
         self.handler = RenderHandler([], self.scene)
 
