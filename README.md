@@ -109,6 +109,10 @@ would like to mention are below.
                    [[3,3,3,3,3,3,3,3,3,3]]
        ```
       where the 3's on the board represent a wall.
+      
+## License
+
+SnakeGame is released under the [MIT License](https://github.com/olawuyio/snake290/blob/master/LICENSE).
 
 ## Our contributions
 
