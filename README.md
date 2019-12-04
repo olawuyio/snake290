@@ -26,7 +26,7 @@ python src/snake_game.py
 The list of libraries used are found in the requirements.txt file on the root directory.
 To install the libraries run: `pip install requirements.txt`
 
-## Folder and their content
+## Folders and their content
 
 src: Main class, Handler classes, interface classes and abstract classes
 ext: The external libraries and settings
