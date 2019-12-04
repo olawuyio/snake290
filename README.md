@@ -52,7 +52,11 @@ Food, and Wall classes.
 The Board class contains a 2d array, each integer represents an element 
 on the board, which will be modified in player and food class whenever 
 the snake moves and a new food appears. While the index representing the walls 
-shall remain unchanged. 
+shall remain unchanged.
+
+The game is structured into a front end a back end. Structuring the code this
+way will make it easier to find and solve issues, easier to make changes and additions,
+and possible to add to the game without knowledge of PyGame.
 
 ## Usage
 
