@@ -64,30 +64,42 @@ class SnakeGame:
         """Close pygame window."""
         pygame.quit()
 
-    def on_event(self, event: pygame.event) -> None:
+    def on_event(self, event: pygame.event) -> bool:
         """Handle a specific event.
 
         :param event: the event to handle
+        :return: whether move is made
         """
         if event.type == pygame.QUIT:
-            self.on_quit()
-            # self.running = False
+            self.state.quit()
 
         keys_pressed = pygame.key.get_pressed()
 
         if keys_pressed[pygame.K_LEFT] or keys_pressed[pygame.K_a]:
             self.player.move((-1, 0))
+            return True
         elif keys_pressed[pygame.K_RIGHT] or keys_pressed[pygame.K_d]:
             self.player.move((1, 0))
+            return True
         elif keys_pressed[pygame.K_UP] or keys_pressed[pygame.K_w]:
             self.player.move((0, -1))
+            return True
         elif keys_pressed[pygame.K_DOWN] or keys_pressed[pygame.K_s]:
             self.player.move((0, 1))
+            return True
+
+        return False
 
     def handle_events(self) -> None:
         """Handle all current events."""
+        move_made = False
+
         for event in pygame.event.get():
-            self.on_event(event)
+            if self.on_event(event):
+                move_made = True
+
+        if not move_made and (self.player.x_dir != 0 or self.player.y_dir != 0):
+            self.player.move((self.player.x_dir, self.player.y_dir))
 
     def update(self) -> List[List[int]]:
         """
