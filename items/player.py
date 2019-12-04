@@ -80,10 +80,6 @@ class Player:
                 if self.board.board[i][j] == 1:
                     self.board.board[i][j] = 0
         for position in self.positions:
-
-            # self.board.board[position[0]][position[1]] = 0
-            position[0] += self.x_dir
-            position[1] += self.y_dir
             self.board.board[position[0]][position[1]] = 1
 
     def move(self, direction: tuple) -> None:
@@ -94,33 +90,30 @@ class Player:
         old_position = self.get_head_position()
         new_position = (self.x_dir + old_position[0],
                         self.y_dir + old_position[1])
-        self.positions.append(new_position)
+        self.positions.insert(0, new_position)
 
-        # Check what object is at the new position
-        if not self.board.is_valid_position(new_position):
+        # Delete tail position if no eat status
+        if not self.ate:
+            del self.positions[-1]
+        self.ate = False
+
+        # Player interacts with empty spot
+        if self.board.get_code(new_position) == 0:
+            pass
+
+        # Player interacts with it's self
+        elif self.board.get_code(new_position) == 1:
             self.state.quit()
-        else:
-            if not self.ate:
-                del self.positions[-1]
-            self.ate = False
 
-            # Player interacts with empty spot
-            if self.board.get_code(new_position) == 0:
-                pass
+        # Player interacts with food
+        elif self.board.get_code(new_position) == 2:
+            self.ate = True
+            self.food.eat()
+            self.food.spawn_food(self.board)
 
-            # Player interacts with it's self
-            elif self.board.get_code(new_position) == 1:
-                self.state.quit()
-
-            # Player interacts with food
-            elif self.board.get_code(new_position) == 2:
-                self.ate = True
-                self.food.eat()
-                self.food.spawn_food(self.board)
-
-            # Player interacts with wall
-            elif self.board.get_code(new_position) == 3:
-                self.state.quit()
+        # Player interacts with wall
+        elif self.board.get_code(new_position) == 3:
+            self.state.quit()
 
     def get_head_position(self) -> (int, int):
         return self.positions[0][0], self.positions[0][1]
