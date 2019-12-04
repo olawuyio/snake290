@@ -73,7 +73,7 @@ your number associated with the object
 
 ## Contributing
 
-Please document your code and add to the doc file how your code works, as well
+Please document your code and add how your code works to the doc file, as well
 as edit the readme file.
 
 ## Extending the code
