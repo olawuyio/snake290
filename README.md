@@ -111,6 +111,7 @@ would like to mention are below.
 ## Our contributions
 
 ##### Syed Jaffay 
+
 My main contribution to the game was the rendering components. I was in charge 
 of designing how the game would look and rendering it. This largely involved 
 the classes, Render Handler, and Snake game. Notably, the Render Handler was 
