@@ -38,6 +38,7 @@ class Board:
     0 represents an empty position
     1 represents a snake part
     2 represents a food item
+    3 represents a wall
     """
 
     dimensions: tuple
