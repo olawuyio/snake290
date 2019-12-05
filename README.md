@@ -2,6 +2,18 @@
 
 SnakeGame is a compilation of code that deals with game logic and rendering
 
+## Index
+
+- [Demo]()
+- [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
+- [Game Features]()
+- [How to Play](https://github.com/olawuyio/snake290/blob/master/README.md#how-to-play)
+- [Code Overview] (https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
+- [Usage] (https://github.com/olawuyio/snake290/blob/master/README.md#usage)
+- [Contributing](https://github.com/tasdikrahman/spaceShooter#contributing)
+- [License] (https://github.com/olawuyio/snake290/blob/master/README.md#license)
+- [Extending the Code] (https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
+- [Our Contributions] (https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
 ![Snake Game](/images/snake_game.png?raw=true)
 
 ## Installation
@@ -22,11 +34,16 @@ git clone https://github.com/olawuyio/snake290
 ```
 python src/snake_game.py
 ```
+
+## Game Features
+Score Board at the top of the screen
+
 ## How To Play
-1. Using "W", "A", "S", "D" to move the direction the snake is moving to. "W" to move up, 
-"A" to move to the left, "S" to move down, and "D" to move to the right. You may also use the arrow keys to move.
-2. Control the snake to avoid touching the wall or the snake's body with it's head.
-3. Control the snake to consume the food to gain score.
+1. Use the "W", "A", "S", "D" keys or the arrow keys to control the Snake. "W" to move up, 
+"A" to move to the left, "S" to move down, and "D" to move to the right.
+2. The objective of the game is for the snake to fill the screen.
+    a. The game is over if the snake touches the wall or another part of its body.
+    b. The snake grows in length and the score goes up by 1 when the snake to eats food.
 
 ## Folders and their content
 
@@ -92,6 +109,12 @@ to the array as well.
 To make the item show up you must change the temp map which can be found
 inside the SnakeGame class in the run function, such that it includes
 your number associated with the object
+
+
+## Contributing
+
+Please document your code and add how your code works to the doc file, as well
+as edit the readme file.
 
 ## Extending the code
 Although there are multiple features the user can add to the game, a few that we 
