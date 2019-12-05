@@ -47,15 +47,21 @@ Score Board at the top of the screen
     a. The game is over if the snake touches the wall or another part of its body.
     b. The snake grows in length and the score goes up by 1 when the snake to eats food.
 
-## Folders and their content
+## Directory Structure
+src:
+* `snake_game.py`: includes the `SnakeGame` class.
+* `render_handler.py`: includes the `RenderHandler` class.
+* `state.py`: includes the `State` class.
 
-src: Main class, Handler classes, interface classes and abstract classes
-ext: The external libraries and settings
-items: item classes
-menus: menu classes
-misc: miscellaneous classes
-build: Computer build files
-doc: all documentation
+items:
+* `food.py`: includes the `Food` class.
+* `item.py`: includes the `Item` class.
+* `player.py`: includes the `Player` class.
+
+arena:
+* `board.py`: includes the `Board` class.
+
+images: includes screenshots of game.
 
 ## Documentation
 
