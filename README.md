@@ -35,7 +35,7 @@ git clone https://github.com/olawuyio/snake290
 python src/snake_game.py
 ```
 
-## Game Control
+## How to Play
 The objective of the game is for the snake to fill the screen.
 1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
 "A" to move to the left, "S" to move down, and "D" to move to the right.
