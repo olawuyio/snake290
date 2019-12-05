@@ -2,8 +2,6 @@
 
 SnakeGame is a snake game written in Python 3 using pygame.
 
-[![GitHub license](https://img.shields.io/github/license/olawuyio/snake290.svg)](https://github.com/olawuyio/snake290/blob/master/LICENSE)
-
 ## Index
 
 - [Demo](#demo)
@@ -41,9 +39,9 @@ python src/snake_game.py
 The objective of the game is for the snake to fill the screen.
 1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
 "A" to move to the left, "S" to move down, and "D" to move to the right.
-2. Control the snake to avoid touching the wall or the snake's body with it's head. The
+2. Control the snake to avoid touching a wall or it's body. The
 game will terminate if the head make contact with its body or the wall.
-3. The main goal of this game is to control the snake to consume the food to gain score, the snake will grow larger.
+3. When the snake eats food, the snake grows in length and the score goes up by 1.
 4. Click the exit button to directly exit the game.
 
 ## Directory Structure
@@ -112,12 +110,12 @@ would like to mention are below.
 
 1. Changing background colour
     * Change the ```background_color``` attribute in the ```__init__```
-     method inside the `SnakeGame` class.
+     method inside the snake_game class.
     * For instance changing ```self.background_color = 0, 0, 0``` to 
     ```self.background_color = 255, 255, 255``` turns the background white.
 
 2. Changing player and item colour
-    * To change the item and player colour, go into the ```RenderHandler``` 
+    * To change the item and player colour, go into the ```render_handler``` 
     class and update the ```food_color```, ```player_color```, and 
     ```wall_color``` attributes in the ```update``` 
     method to your desired colours.
@@ -125,7 +123,7 @@ would like to mention are below.
     ```self.player_color = 255, 0, 255 ``` will make the snake purple. 
 
 3. Adding obstacles to the map
-    * In the ```__init__``` method inside the `Board` class, change the default 
+    * In the ```__init__``` method inside the board class, change the default 
     initializer to a preset array, adding a three where a wall should be.
     Note the board should be a 48 by 64 grid. 
     * A smaller 10 by 5 example would look like
@@ -161,7 +159,6 @@ sure it followed the proper guidelines.
 ##### Daren Liang
 
 In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots, committing the license file and formatting the general structure.
-
 
 ##### Oyinkan Olawuyi
 In the code, I worked on the Player class, in particular how the player (denoted by the Snake) moves in the game. The board is created based on 2D array made up of 0s, 1s, 2s and 3s which denote empty positions, Snake objects, food objects and wall objects respectively. As part of the move() function, I checked the corresponding value in the 2D array for the new position the Snake wants to move into and assigned the corresponding outcome. For the README, I created an index, described how users can play the game and the documentation of our code. 
