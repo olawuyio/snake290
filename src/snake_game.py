@@ -47,7 +47,7 @@ class SnakeGame:
         # Initialize pygame window
         pygame.init()
         pygame.display.set_caption("Snake Game")
-        self.scene = pygame.display.set_mode((800, 480))
+        self.scene = pygame.display.set_mode(self.DIMENSIONS)
 
         # Initialize backend components
         self.background_color = 0, 0, 0
