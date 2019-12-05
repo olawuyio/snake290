@@ -1,6 +1,6 @@
-# SnakeGame *Note this file is subject to change
+# SnakeGame
 
-SnakeGame is a compilation of code that deals with game logic and rendering
+SnakeGame is a snake game written in Python 3 using pygame.
 
 ## Index
 
