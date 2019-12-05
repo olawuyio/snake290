@@ -7,7 +7,7 @@ SnakeGame is a snake game written in Python 3 using pygame.
 - [Demo](https://github.com/olawuyio/snake290/blob/master/README.md#demo)
 - [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
 - [Game Features](https://github.com/olawuyio/snake290/blob/master/README.md#game-features)
-- [How to Play](https://github.com/olawuyio/snake290/blob/master/README.md#how-to-play)
+- [Game Control](https://github.com/olawuyio/snake290/blob/master/README.md#game-control)
 - [Code Overview](https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
 - [Usage](https://github.com/olawuyio/snake290/blob/master/README.md#usage)
 - [Contributing](https://github.com/olawuyio/snake290/blob/master/README.md#contributing)
@@ -48,12 +48,6 @@ game will terminate if the head make contact with its body or the wall.
 ## Game Features
 Score Board at the top of the screen
 
-## How To Play
-1. Use the "W", "A", "S", "D" keys or the arrow keys to control the Snake. "W" to move up, 
-"A" to move to the left, "S" to move down, and "D" to move to the right.
-2. The objective of the game is for the snake to fill the screen.
-    a. The game is over if the snake touches the wall or another part of its body.
-    b. The snake grows in length and the score goes up by 1 when the snake to eats food.
 
 ## Directory Structure
 src:
