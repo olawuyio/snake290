@@ -37,6 +37,14 @@ git clone https://github.com/olawuyio/snake290
 python src/snake_game.py
 ```
 
+## Game Control
+1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
+"A" to move to the left, "S" to move down, and "D" to move to the right.
+2. Control the snake to avoid touching the wall or the snake's body with it's head. The
+game will terminate if the head make contact with its body or the wall.
+3. The main goal of this game is to control the snake to consume the food to gain score, the snake will grow larger.
+4. Click the exit button to directly exit the game.
+
 ## Game Features
 Score Board at the top of the screen
 
@@ -179,8 +187,12 @@ sure it followed the proper guidelines.
 
 In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots and committing the license file.
 
+
 ##### Oyinkan Olawuyi
 In the code, I worked on the Player class, in particular how the player (denoted by the Snake) moves in the game. The board is created based on 2D array made up of 0s, 1s, 2s and 3s which denote empty positions, Snake objects, food objects and wall objects respectively. As part of the move() function, I checked the corresponding value in the 2D array for the new position the Snake wants to move into and assigned the corresponding outcome. For the README, I created an index, described the features we implemented and how users can play the game. 
 
 #### Joshua Leung
 My contributions towards the game consists of some code implementation, documentation, and writing on the README file. For the code, my main contributions were involved with creating and adding documentation to the player class. In addition, I looked over other classes as well to look for bugs and areas for improvement. For the README file, I mainly worked on the Documentation section and editing parts of most other sections.
+
+##### Ruopeng Liu
+For this project. I contributed in the completion of food, player, and item class. I modified all the item class, so that on the board they could have consistent size and interact well with each other while being displayed on the board. I created the wall class so the representation of the wall will be displayed consistently throughout the game. I set up the initializer for the player class so it can utilize the 2d array in the following update and move methods. I also fixed the import issue with our code from different teammates. For the README, I have contributed to the GameControl section, as well as the Documentation which explains the structure of our code and how our game utilizes the 2d representation of the board.
