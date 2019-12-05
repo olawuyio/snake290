@@ -8,12 +8,14 @@ SnakeGame is a compilation of code that deals with game logic and rendering
 - [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
 - [Game Features]()
 - [How to Play](https://github.com/olawuyio/snake290/blob/master/README.md#how-to-play)
-- [Code Overview] (https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
-- [Usage] (https://github.com/olawuyio/snake290/blob/master/README.md#usage)
+- [Code Overview](https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
+- [Usage](https://github.com/olawuyio/snake290/blob/master/README.md#usage)
 - [Contributing](https://github.com/tasdikrahman/spaceShooter#contributing)
-- [License] (https://github.com/olawuyio/snake290/blob/master/README.md#license)
-- [Extending the Code] (https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
-- [Our Contributions] (https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
+- [License](https://github.com/olawuyio/snake290/blob/master/README.md#license)
+- [Extending the Code](https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
+- [Our Contributions](https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
+
+##Demo
 ![Snake Game](/images/snake_game.png?raw=true)
 
 ## Installation
@@ -171,6 +173,5 @@ sure it followed the proper guidelines.
 
 In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots and committing the license file.
 
-#### Joshua Leung
-
-My contributions towards the game consists of some code implementation, documentation, and writing on the README file. For the code, my main contributions were involved with creating and adding documentation to the player class. In addition, I looked over other classes as well to look for bugs and areas for improvement. For the README file, I mainly worked on the Documentation section and editing parts of most other sections.
+##### Oyinkan Olawuyi
+In the code, I worked on the Player class, in particular how the player (denoted by the Snake) moves in the game. The board is created based on 2D array made up of 0s, 1s, 2s and 3s which denote empty positions, Snake objects, food objects and wall objects respectively. As part of the move() function, I checked the corresponding value in the 2D array for the new position the Snake wants to move into and assigned the corresponding outcome. For the README, I created an index, described the features we implemented and how users can play the game. 
