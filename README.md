@@ -2,7 +2,7 @@
 
 SnakeGame is a snake game written in Python 3 using pygame.
 
-[![GitHub license](https://img.shields.io/github/license/olawuyio/snake290.svg)](https://github.com/olawuyio/snake290.js/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/olawuyio/snake290.svg)](https://github.com/olawuyio/snake290/blob/master/LICENSE)
 
 ## Index
 
