@@ -2,6 +2,20 @@
 
 SnakeGame is a compilation of code that deals with game logic and rendering
 
+## Index
+
+- [Demo](https://github.com/olawuyio/snake290/blob/master/README.md#demo)
+- [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
+- [Game Features](https://github.com/olawuyio/snake290/blob/master/README.md#game-features)
+- [How to Play](https://github.com/olawuyio/snake290/blob/master/README.md#how-to-play)
+- [Code Overview](https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
+- [Usage](https://github.com/olawuyio/snake290/blob/master/README.md#usage)
+- [Contributing](https://github.com/olawuyio/snake290/blob/master/README.md#contributing)
+- [License](https://github.com/olawuyio/snake290/blob/master/README.md#license)
+- [Extending the Code](https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
+- [Our Contributions](https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
+
+## Demo
 ![Snake Game](/images/snake_game.png?raw=true)
 
 ## Installation
@@ -22,6 +36,7 @@ git clone https://github.com/olawuyio/snake290
 ```
 python src/snake_game.py
 ```
+
 ## Game Control
 1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
 "A" to move to the left, "S" to move down, and "D" to move to the right.
@@ -29,10 +44,9 @@ python src/snake_game.py
 game will terminate if the head make contact with its body or the wall.
 3. The main goal of this game is to control the snake to consume the food to gain score, the snake will grow larger.
 4. Click the exit button to directly exit the game.
-## Libraries
 
-The list of libraries used are found in the requirements.txt file on the root directory.
-To install the libraries run: `pip install requirements.txt`
+## Game Features
+Score Board at the top of the screen
 
 ## Folders and their content
 
@@ -44,20 +58,26 @@ misc: miscellaneous classes
 build: Computer build files
 doc: all documentation
 
-## Advanced code overview
+## Documentation
 
 The code is structured into three parts: the game, arena, and items.
-The game holds the Snake_game, State, and Render Handler classes,
-the arena holds the Board class, and the items holds the Player,
-Food, and Wall classes.
-The Board class contains a 2d array, each integer represents an element 
+The game holds the snake_game, state, and render_handler classes,
+the arena holds the board class, and the items holds the player,
+food, and wall classes.
+
+The Board class contains a 2d array, where each integer represents an element 
 on the board, which will be modified in player and food class whenever 
 the snake moves and a new food appears. While the index representing the walls 
 shall remain unchanged.
 
-The game is structured into a front end a back end. Structuring the code this
-way will make it easier to find and solve issues, easier to make changes and additions,
-and possible to add to the game without knowledge of PyGame.
+The game is structured into a front-end and a back-end. The front end contains the
+item and render_handler classes, while the back end contains the arena, player, food,
+and snake_game classes. The main jobs for the front-end are to display the game and
+keep the game running at 50 fps. For the back-end, the main purposes consists of
+running the game, tracking objects, and moving the player.
+
+Structuring the code this way will make it easier to find and solve issues, easier to
+make changes and additions, and possible to add to the game without knowledge of PyGame.
 
 ## Usage
 
@@ -153,4 +173,11 @@ sure it followed the proper guidelines.
 ##### Daren Liang
 
 In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots and committing the license file.
-t
+
+
+##### Oyinkan Olawuyi
+In the code, I worked on the Player class, in particular how the player (denoted by the Snake) moves in the game. The board is created based on 2D array made up of 0s, 1s, 2s and 3s which denote empty positions, Snake objects, food objects and wall objects respectively. As part of the move() function, I checked the corresponding value in the 2D array for the new position the Snake wants to move into and assigned the corresponding outcome. For the README, I created an index, described the features we implemented and how users can play the game. 
+
+#### Joshua Leung
+My contributions towards the game consists of some code implementation, documentation, and writing on the README file. For the code, my main contributions were involved with creating and adding documentation to the player class. In addition, I looked over other classes as well to look for bugs and areas for improvement. For the README file, I mainly worked on the Documentation section and editing parts of most other sections.
+
