@@ -138,7 +138,7 @@ would like to mention are below.
 
 SnakeGame is released under the [MIT License](https://github.com/olawuyio/snake290/blob/master/LICENSE).
 
-## Our contributions
+## Our Contributions
 
 ##### Syed Jaffay 
 
