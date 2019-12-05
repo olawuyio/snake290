@@ -4,18 +4,18 @@ SnakeGame is a compilation of code that deals with game logic and rendering
 
 ## Index
 
-- [Demo]()
+- [Demo](https://github.com/olawuyio/snake290/blob/master/README.md#demo)
 - [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
-- [Game Features]()
+- [Game Features](https://github.com/olawuyio/snake290/blob/master/README.md#game-features)
 - [How to Play](https://github.com/olawuyio/snake290/blob/master/README.md#how-to-play)
 - [Code Overview](https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
 - [Usage](https://github.com/olawuyio/snake290/blob/master/README.md#usage)
-- [Contributing](https://github.com/tasdikrahman/spaceShooter#contributing)
+- [Contributing](https://github.com/olawuyio/snake290/blob/master/README.md#contributing)
 - [License](https://github.com/olawuyio/snake290/blob/master/README.md#license)
 - [Extending the Code](https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
 - [Our Contributions](https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
 
-##Demo
+## Demo
 ![Snake Game](/images/snake_game.png?raw=true)
 
 ## Installation
