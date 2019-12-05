@@ -52,7 +52,16 @@ Food, and Wall classes.
 The Board class contains a 2d array, each integer represents an element 
 on the board, which will be modified in player and food class whenever 
 the snake moves and a new food appears. While the index representing the walls 
-shall remain unchanged. 
+shall remain unchanged.
+
+The game is structured into a front-end and a back-end. The front end contains the
+Item class and Render handler, while the back end contains the Arena, Player, food,
+and Snake_Game classes. The main jobs for the front-end are to display the game, and
+to keep the game running at 50 fps. For the back-end, the main purposes consist of
+running the game, tracking objects, and moving the player.
+
+Structuring the code this way will make it easier to find and solve issues, easier
+to make changes and additions, and possible to add to the game without knowledge of PyGame.
 
 ## Usage
 
