@@ -112,12 +112,12 @@ would like to mention are below.
 
 1. Changing background colour
     * Change the ```background_color``` attribute in the ```__init__```
-     method inside the snake_game class.
+     method inside the `SnakeGame` class.
     * For instance changing ```self.background_color = 0, 0, 0``` to 
     ```self.background_color = 255, 255, 255``` turns the background white.
 
 2. Changing player and item colour
-    * To change the item and player colour, go into the ```render_handler``` 
+    * To change the item and player colour, go into the ```RenderHandler``` 
     class and update the ```food_color```, ```player_color```, and 
     ```wall_color``` attributes in the ```update``` 
     method to your desired colours.
@@ -125,7 +125,7 @@ would like to mention are below.
     ```self.player_color = 255, 0, 255 ``` will make the snake purple. 
 
 3. Adding obstacles to the map
-    * In the ```__init__``` method inside the board class, change the default 
+    * In the ```__init__``` method inside the `Board` class, change the default 
     initializer to a preset array, adding a three where a wall should be.
     Note the board should be a 48 by 64 grid. 
     * A smaller 10 by 5 example would look like
