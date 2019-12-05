@@ -28,11 +28,6 @@ python src/snake_game.py
 2. Control the snake to avoid touching the wall or the snake's body with it's head.
 3. Control the snake to consume the food to gain score.
 
-## Libraries
-
-The list of libraries used are found in the requirements.txt file on the root directory.
-To install the libraries run: `pip install requirements.txt`
-
 ## Folders and their content
 
 src: Main class, Handler classes, interface classes and abstract classes
