@@ -93,12 +93,6 @@ To make the item show up you must change the temp map which can be found
 inside the SnakeGame class in the run function, such that it includes
 your number associated with the object
 
-
-## Contributing
-
-Please document your code and add how your code works to the doc file, as well
-as edit the readme file.
-
 ## Extending the code
 Although there are multiple features the user can add to the game, a few that we 
 would like to mention are below.  
