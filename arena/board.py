@@ -64,6 +64,11 @@ class Board:
         return self.dimensions[1]
 
     def get_code(self, position: tuple) -> int:
+        """Get integer code for position.
+
+        :param position: x, y coordinates of position.
+        :return: integer code of position.
+        """
         return self.board[position[0]][position[1]]
 
     def is_valid_position(self, position: tuple) -> bool:
