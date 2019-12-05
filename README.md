@@ -78,10 +78,26 @@ The game holds the snake_game, state, and render_handler classes,
 the arena holds the board class, and the items holds the player,
 food, and wall classes.
 
+
 The Board class contains a 2d array, where each integer represents an element 
 on the board, which will be modified in player and food class whenever 
 the snake moves and a new food appears. While the index representing the walls 
 shall remain unchanged.
+* get_all_empty_positions: get empty positions available for a food to be spawned on.
+
+
+
+The Player class initializes players and gets input from the keyboard events.
+* update: updates the 2d array, making a element to represent the player
+
+* move: Change the players direction in the <game> based on key presses. Interact with
+the next element on the board.
+
+The Food class represents the food on the board.
+
+* spawn_food: spawn food on the board.
+
+* eat: called when the food is eaten, change the location to a empty element.
 
 The game is structured into a front-end and a back-end. The front end contains the
 item and render_handler classes, while the back end contains the arena, player, food,
