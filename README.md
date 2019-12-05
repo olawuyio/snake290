@@ -22,19 +22,19 @@ SnakeGame is a snake game written in Python 3 using pygame.
 1. Make sure that Python 3 installed. If not, you can download and install it [here](https://www.python.org/downloads/).
 
 2. Install [pygame](https://www.pygame.org) by running the following command:
-```
-pip install pygame
-```
+    ```
+    pip install pygame
+    ```
 
 3. [Download project files](https://github.com/olawuyio/snake290/archive/master.zip) or clone repo with the following command:
-```
-git clone https://github.com/olawuyio/snake290
-```
+    ```
+    git clone https://github.com/olawuyio/snake290
+    ```
 
 4. From the project root folder, run `src/snake_game.py` with Python
-```
-python src/snake_game.py
-```
+    ```
+    python src/snake_game.py
+    ```
 
 ## Game Control
 1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
