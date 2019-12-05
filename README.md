@@ -38,7 +38,7 @@ misc: miscellaneous classes
 build: Computer build files
 doc: all documentation
 
-## Advanced code overview
+## Documentation
 
 The code is structured into three parts: the game, arena, and items.
 The game holds the snake_game, state, and render_handler classes,
