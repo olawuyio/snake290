@@ -125,11 +125,11 @@ would like to mention are below.
     Note the board should be a 48 by 64 grid. 
     * A smaller 10 by 5 example would look like
       ```
-      Self.board = [[3,3,3,3,3,3,3,3,3,3]] 
-                   [[3,3,0,0,0,0,3,0,0,3]]
-                   [[3,0,3,3,1,0,0,0,0,3]]
-                   [[3,0,0,0,0,0,0,0,0,3]]
-                   [[3,3,3,3,3,3,3,3,3,3]]
+      Self.board = [[3,3,3,3,3,3,3,3,3,3], 
+                    [3,3,0,0,0,0,3,0,0,3],
+                    [3,0,3,3,1,0,0,0,0,3],
+                    [3,0,0,0,0,0,0,0,0,3],
+                    [3,3,3,3,3,3,3,3,3,3]]
        ```
       where the 3's on the board represent a wall.
       
