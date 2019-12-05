@@ -22,12 +22,13 @@ git clone https://github.com/olawuyio/snake290
 ```
 python src/snake_game.py
 ```
-## How To Play
-1. Using "W", "A", "S", "D" to move the direction the snake is moving to. "W" to move up, 
+## Game Control
+1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
 "A" to move to the left, "S" to move down, and "D" to move to the right.
-2. Control the snake to avoid touching the wall or the snake's body with it's head.
-3. Control the snake to consume the food to gain score.
-
+2. Control the snake to avoid touching the wall or the snake's body with it's head. The
+game will terminate if the head make contact with its body or the wall.
+3. The main goal of this game is to control the snake to consume the food to gain score, the snake will grow larger.
+4. Click the exit button to directly exit the game.
 ## Libraries
 
 The list of libraries used are found in the requirements.txt file on the root directory.
@@ -152,3 +153,4 @@ sure it followed the proper guidelines.
 ##### Daren Liang
 
 In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots and committing the license file.
+t
