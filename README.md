@@ -62,50 +62,49 @@ images: includes screenshots of game.
 
 ## Documentation
 
-The SnakeGame class handles running the game and defining the pygame stageholds.
-* on_quit: closes pygame window
-* on_event: handles a specific event
-* handle_events: handle all current events
-* update: handles changes
-* on_run: starts the game and keeps running it, updating game logic and rendering
+The `SnakeGame` class handles running the game and defining the pygame stage.
+* `on_quit`: closes pygame window
+* `on_event`: handles a specific event
+* `handle_events`: handle all current events
+* `update`: handles changes to the board
+* `on_run`: starts the game and keeps running it, updating game logic and rendering
         items.
 
-The RenderHandler class takes in a 2d array and converts it into objects for pygame.
-* update: loop through the game list and mirror it to a list of objects such that
+The `RenderHandler` class takes in a 2D array and converts it into renderable objects for pygame.
+* `update`: loop through the game list and mirror it to a list of objects such that
         the objects represent visually what is going on in the game
-* render: goes through each object in the game and renders it
+* `render`: goes through each object in the game and renders it
 
-The State class defines a string which represents what the game should be doing
-* set_to_running: changes state to "running"
-* quit: changes state to "quit"
+The `State` class defines a string which represents what the game should be doing.
+* `set_to_running`: changes state to "running"
+* `quit`: changes state to "quit"
         
-The Board class represents board containing snake, food and wall. Thehis uses a 2D array made up of 0s, 1s, 2s and 3s  where each integer represents empty positions, Snake objects, food objects and wall objects respectively.
-shall remain unchanged.
-* get_width: get board width.
-* get_height: get board height.
-* is_valid_position: check if position is valid (within screen boundaries)
-* is_position_empty: check if position is empty (no snake or food)
-* get_random_empty_position: get a random empty position
-* get_all_empty_positions: get all empty positions
+The `Board` class represents board containing snake, food and wall. It uses a 2D array made up of 0s, 1s, 2s and 3s  where each integer represents empty positions, snake objects, food objects and wall objects respectively.
+* `get_width`: get board width.
+* `get_height`: get board height.
+* `is_valid_position`: check if position is valid (within screen boundaries)
+* `is_position_empty`: check if position is empty (no snake or food)
+* `get_random_empty_position`: get a random empty position
+* `get_all_empty_positions`: get all empty positions
 
-The Player class represent the snake on the board  and gets input from the keyboard events.
-* update: moves the player in the appropriate direction
-* move: change the players direction in the game based on key presses
+The `Player` class represents the snake on the board and gets input from the keyboard events.
+* `update`: moves the player in the appropriate direction
+* `move`: change the players direction in the game based on key presses
 
-The Food class
-* eat: eat food
-* spawn_food: spawn food item at an empty position on board
+The `Food` class represents the food on the board.
+* `eat`: eat food
+* `spawn_food`: spawn food item at an empty position on board
 
 The game is structured into a front-end and a back-end. The main jobs for the front-end are to display the game and
-keep the game running at 50 fps. For the back-end, the main purposes consists of
+keep the game running at 10 fps. For the back-end, the main purposes consists of
 running the game, tracking objects, and moving the player. The front end contains the
-RenderHandler class, while the back end contains the Board, Player, Food,
-and SnakeGame classes.
+`RenderHandler` class, while the back end contains the `Board`, `Player`, `Food`,
+and `SnakeGame` classes.
 
 Structuring the code this way will make it easier to find and solve issues, easier to
-make changes and additions, and possible to add to the game without knowledge of PyGame.
+make changes and additions, and possible to add to the game without knowledge of pygame.
 
-## Extending the code
+## Extending the Code
 Although there are multiple features the user can add to the game, a few that we 
 would like to mention are below.  
 
