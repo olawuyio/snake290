@@ -8,11 +8,10 @@ SnakeGame is a snake game written in Python 3 using pygame.
 - [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
 - [Game Features](https://github.com/olawuyio/snake290/blob/master/README.md#game-features)
 - [Game Control](https://github.com/olawuyio/snake290/blob/master/README.md#game-control)
-- [Code Overview](https://github.com/olawuyio/snake290/blob/master/README.md#advanced-code-overview)
-- [Usage](https://github.com/olawuyio/snake290/blob/master/README.md#usage)
-- [Contributing](https://github.com/olawuyio/snake290/blob/master/README.md#contributing)
-- [License](https://github.com/olawuyio/snake290/blob/master/README.md#license)
+- [Directory Structure](https://github.com/olawuyio/snake290/blob/master/README.md#directory-structure)
+- [Documentation](https://github.com/olawuyio/snake290/blob/master/README.md#documentation)
 - [Extending the Code](https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
+- [License](https://github.com/olawuyio/snake290/blob/master/README.md#license)
 - [Our Contributions](https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
 
 ## Demo
