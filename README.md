@@ -4,15 +4,14 @@ SnakeGame is a snake game written in Python 3 using pygame.
 
 ## Index
 
-- [Demo](#demo)
-- [Installation](#installation)
-- [Game Features](#game-features)
-- [Game Control](#game-control)
-- [Directory Structure](#directory-structure)
-- [Documentation](#documentation)
-- [Extending the Code](#extending-the-code)
-- [License](#license)
-- [Our Contributions](#our-contributions)
+- [Demo](https://github.com/olawuyio/snake290/blob/master/README.md#demo)
+- [Installation](https://github.com/olawuyio/snake290/blob/master/README.md#installation)
+- [How to Play](https://github.com/olawuyio/snake290/blob/master/README.md#how-to-play)
+- [Directory Structure](https://github.com/olawuyio/snake290/blob/master/README.md#directory-structure)
+- [Documentation](https://github.com/olawuyio/snake290/blob/master/README.md#documentation)
+- [Extending the Code](https://github.com/olawuyio/snake290/blob/master/README.md#extending-the-code)
+- [License](https://github.com/olawuyio/snake290/blob/master/README.md#license)
+- [Our Contributions](https://github.com/olawuyio/snake290/blob/master/README.md#our-contributions)
 
 ## Demo
 ![Snake Game](/images/snake_game.png?raw=true)
@@ -22,31 +21,28 @@ SnakeGame is a snake game written in Python 3 using pygame.
 1. Make sure that Python 3 installed. If not, you can download and install it [here](https://www.python.org/downloads/).
 
 2. Install [pygame](https://www.pygame.org) by running the following command:
-    ```
-    pip install pygame
-    ```
+```
+pip install pygame
+```
 
 3. [Download project files](https://github.com/olawuyio/snake290/archive/master.zip) or clone repo with the following command:
-    ```
-    git clone https://github.com/olawuyio/snake290
-    ```
+```
+git clone https://github.com/olawuyio/snake290
+```
 
 4. From the project root folder, run `src/snake_game.py` with Python
-    ```
-    python src/snake_game.py
-    ```
+```
+python src/snake_game.py
+```
 
 ## Game Control
+The objective of the game is for the snake to fill the screen.
 1. Using "W", "A", "S", "D" or the arrow keys to move the direction the snake is moving to. "W" to move up, 
 "A" to move to the left, "S" to move down, and "D" to move to the right.
 2. Control the snake to avoid touching the wall or the snake's body with it's head. The
 game will terminate if the head make contact with its body or the wall.
 3. The main goal of this game is to control the snake to consume the food to gain score, the snake will grow larger.
 4. Click the exit button to directly exit the game.
-
-## Game Features
-Score Board at the top of the screen
-
 
 ## Directory Structure
 src:
@@ -66,37 +62,45 @@ images: includes screenshots of game.
 
 ## Documentation
 
-The code is structured into three parts: the game, arena, and items.
-The game holds the snake_game, state, and render_handler classes,
-the arena holds the board class, and the items holds the player,
-food, and wall classes.
+The SnakeGame class handles running the game and defining the pygame stageholds.
+* on_quit: closes pygame window
+* on_event: handles a specific event
+* handle_events: handle all current events
+* update: handles changes
+* on_run: starts the game and keeps running it, updating game logic and rendering
+        items.
 
+The RenderHandler class takes in a 2d array and converts it into objects for pygame.
+* update: loop through the game list and mirror it to a list of objects such that
+        the objects represent visually what is going on in the game
+* render: goes through each object in the game and renders it
 
-The Board class contains a 2d array, where each integer represents an element 
-on the board, which will be modified in player and food class whenever 
-the snake moves and a new food appears. While the index representing the walls 
+The State class defines a string which represents what the game should be doing
+* set_to_running: changes state to "running"
+* quit: changes state to "quit"
+        
+The Board class represents board containing snake, food and wall. Thehis uses a 2D array made up of 0s, 1s, 2s and 3s  where each integer represents empty positions, Snake objects, food objects and wall objects respectively.
 shall remain unchanged.
-* get_all_empty_positions: get empty positions available for a food to be spawned on.
+* get_width: get board width.
+* get_height: get board height.
+* is_valid_position: check if position is valid (within screen boundaries)
+* is_position_empty: check if position is empty (no snake or food)
+* get_random_empty_position: get a random empty position
+* get_all_empty_positions: get all empty positions
 
+The Player class represent the snake on the board  and gets input from the keyboard events.
+* update: moves the player in the appropriate direction
+* move: change the players direction in the game based on key presses
 
+The Food class
+* eat: eat food
+* spawn_food: spawn food item at an empty position on board
 
-The Player class initializes players and gets input from the keyboard events.
-* update: updates the 2d array, making a element to represent the player
-
-* move: Change the players direction in the <game> based on key presses. Interact with
-the next element on the board.
-
-The Food class represents the food on the board.
-
-* spawn_food: spawn food on the board.
-
-* eat: called when the food is eaten, change the location to a empty element.
-
-The game is structured into a front-end and a back-end. The front end contains the
-item and render_handler classes, while the back end contains the arena, player, food,
-and snake_game classes. The main jobs for the front-end are to display the game and
+The game is structured into a front-end and a back-end. The main jobs for the front-end are to display the game and
 keep the game running at 50 fps. For the back-end, the main purposes consists of
-running the game, tracking objects, and moving the player.
+running the game, tracking objects, and moving the player. The front end contains the
+RenderHandler class, while the back end contains the Board, Player, Food,
+and SnakeGame classes.
 
 Structuring the code this way will make it easier to find and solve issues, easier to
 make changes and additions, and possible to add to the game without knowledge of PyGame.
@@ -138,7 +142,7 @@ would like to mention are below.
 
 SnakeGame is released under the [MIT License](https://github.com/olawuyio/snake290/blob/master/LICENSE).
 
-## Our Contributions
+## Our contributions
 
 ##### Syed Jaffay 
 
@@ -155,12 +159,13 @@ sure it followed the proper guidelines.
 
 ##### Daren Liang
 
-In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots, restructuring the directory structure section and committing the license file.
+In regards to the code, I've contributed to the logic components. I worked on implementing the board and food classes, as well as, handling move events for the player class which interacts with the board and food classes. I have also contributed to the main game class and have implemented methods for modifying the state of the game (ex. quitting the game). For the README, I've contributed to the installation steps section, adding screenshots and committing the license file.
+
 
 ##### Oyinkan Olawuyi
-In the code, I worked on the Player class, in particular how the player (denoted by the Snake) moves in the game. The board is created based on 2D array made up of 0s, 1s, 2s and 3s which denote empty positions, Snake objects, food objects and wall objects respectively. As part of the move() function, I checked the corresponding value in the 2D array for the new position the Snake wants to move into and assigned the corresponding outcome. For the README, I created an index, described the features we implemented and how users can play the game. 
+In the code, I worked on the Player class, in particular how the player (denoted by the Snake) moves in the game. The board is created based on 2D array made up of 0s, 1s, 2s and 3s which denote empty positions, Snake objects, food objects and wall objects respectively. As part of the move() function, I checked the corresponding value in the 2D array for the new position the Snake wants to move into and assigned the corresponding outcome. For the README, I created an index, described how users can play the game and the documentation of our code. 
 
-##### Joshua Leung
+#### Joshua Leung
 My contributions towards the game consists of some code implementation, documentation, and writing on the README file. For the code, my main contributions were involved with creating and adding documentation to the player class. In addition, I looked over other classes as well to look for bugs and areas for improvement. For the README file, I mainly worked on the Documentation section and editing parts of most other sections.
 
 ##### Ruopeng Liu
